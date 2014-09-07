@@ -1,0 +1,375 @@
+
+/*
+ * common
+ */
+
+a.large {
+font-size: 2em;
+margin: 10px;
+}
+
+.noscript {
+display: none;
+}
+
+.noscript-invisible{
+visibility: hidden;
+}
+
+/*
+ * index page
+ */
+
+#index-wordcloud {
+position: absolute;
+display: block;
+right: 10px;
+width: 250px;
+background-color: #EDF9FF;
+padding: 22px;
+}
+
+#index-image {
+position: relative;
+width: 700px;
+height: 350px;
+margin: 10px;
+overflow: hidden;
+}
+
+#index-content {
+position: relative;
+width: 700px;
+margin: 10px;
+margin-top: 35px;
+}
+
+#index-logo {
+position: relative;
+width: 700px;
+margin: 10px;
+margin-top: 35px;
+}
+
+#index-link {
+position: relative;
+width: 700px;
+margin: 10px;
+margin-top: 35px;
+text-align: center;
+}
+
+#index-slider {
+position: relative;
+width: 700px;
+height: 350px;
+overflow: hidden;
+}
+
+#index-slider image {
+position: absolute;
+top: 0px;
+left: 0px;
+}
+
+/*
+ * list page
+ */
+
+#list-content {
+position: relative;
+width: 700px;
+margin: 10px; 
+}
+
+#list-content span.h1 {
+color: #3366CC;
+font-size: 1.4em;
+font-weight: bold;
+line-height: 2em;
+margin-left: 10px;
+}
+
+#list-content span.h2 {
+color: #3366CC;
+font-size: 1.1em;
+margin-left: 10px;
+}
+
+#list-filter {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 300px;
+}
+
+#list-filter input {
+visibility: hidden;
+}
+
+#list-filter .light-grey {
+color: rgb(200, 200, 200);
+}
+
+#list {
+position:relative;
+margin-left: 350px;
+width: 650px;
+}
+
+#list .list-item {
+margin-top: 20px;
+border-left: solid #0099FF 5px;
+padding: 5px;
+height: 100px;
+}
+
+#list .thumb {
+position: relative;
+float: left;
+}
+
+#list .abstract {
+position: relative;
+margin-left: 120px;
+}
+
+/**
+ * view page
+ */
+
+html, body {
+height: 98%;
+width: 100%;
+padding: 0px;
+padding: 0px;
+margin: 0px;
+}
+
+#view-main {
+position: relative;
+display: block;
+width: 100%;
+height: 100%;
+}
+
+#view-main .resizable{
+position: absolute;
+right: -6px;
+bottom: -6px;
+width: 6px;
+height: 6px;
+background-color: #0099FF;
+}
+
+#view-main .toolbar{
+position: absolute;
+right: 4px;
+top: 4px;
+z-index: 40;
+display: none;
+}
+
+#view-header {
+position: relative;
+margin: 1%;
+background-color: white;
+padding: 10px;
+border: 1px solid #0099FF;
+}
+
+#options {
+position: absolute;
+left: 52%;
+bottom: 4px;
+}
+
+#options * {
+color: #3366CC;
+}
+
+#window-image {
+position: absolute;
+left: 1%;
+width: 48%;
+height: 92%;
+display: block;
+border: 1px solid #0099FF;
+background-color: white;
+}
+
+#window-image-inner {
+position: relative;
+height: 100%;
+background-color: white;
+overflow: hidden;
+}
+
+#view-text {
+position: absolute;
+right: 1%;
+width: 48%;
+height: 92%;
+display: block;
+}
+
+#view-text-inner {
+position: relative;
+width: 100%;
+height: 100%;
+}
+
+#window-comment, #window-transcription1,
+#window-transcription2 {
+position: relative;
+width: 100%;
+border: 1px solid #0099FF;
+height: 33%;
+background-color: white;
+}
+
+#window-comment, #window-transcription1 {
+margin-bottom: .4%;
+}
+
+#view-main div.h1 {
+position: absolute;
+left: 0px;
+top: 0px;
+width: 98%;
+color: #3366CC;
+font-size: 22px;
+font-weight: bold;
+padding-left: 2%;
+padding-top: 16px;
+display: block;
+background-color: #EDF9FF;
+z-index: 30;
+height: 28px;
+}
+
+#view-main div.content {
+position: relative;
+width: 100%;
+height: 100%;
+overflow-y: scroll;
+}
+
+#view-main div.p {
+position: relative;
+margin: 10px;
+margin-top: 3em;
+display: block;
+}
+
+#view-main span.hover-text {
+display: inline-block;
+z-index: 25;
+}
+
+/**
+ * transcription
+ */
+
+#view-main .tooltip {
+display: none;
+}
+
+#view-main div.line {
+display: block;
+margin: 5px;
+}
+
+#view-main div.heading {
+margin-top: 20px;
+margin-bottom: 10px;
+}
+
+#view-main span.heading {
+color: #A77F06;
+font-size: 2em;
+font-weight: bold;
+font-family: "Courier New";
+}
+
+#view-main span.hr {
+border-bottom: solid rgb(150,150,150) 1px;
+margin-bottom: 5px;
+display: inline-block;
+}
+
+#view-main span.label {
+font-family: "Courier new";
+}
+
+#view-main div.editor, #view-main div.date,
+#view-main div.classCode, #view-main div.abstract,
+#view-main div.handNotes {
+margin-bottom: 1em;
+}
+
+#view-main div.region {
+border-bottom: solid #A77F06 3px;
+}
+
+#view-main .tooltip {
+vertical-align: super;
+font-size: .5em;
+}
+
+#view-main .tei_lb {
+text-decoration: none;
+width: 30px;
+display: inline-block;
+}
+
+#view-main .tei_choice {
+color: #C50404;
+}
+
+#view-main .tei_pb {
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
+#view-main .tei_elongata {
+font-family: "Andale Mono";
+font-size: 1.5em;
+}
+
+#view-main .tei_foreign {
+letter-spacing: .3em;
+font-style: italic;
+}
+
+#view-main .tei_del {
+text-decoration: line-through;
+}
+
+#view-main .tei_add {
+color: #04C51E;
+text-decoration: underline;
+}
+
+#view-main .handS2 {
+border-bottom: 1px dashed blue;
+}
+
+#view-main .tei_handShift {
+color: rgb(150,150,150);
+}
+
+#view-main svg {
+margin-left: -.15em;
+}
+
+#view-main table, #view-main tr, #view-main td {
+border: solid grey 1px;
+border-collapse:collapse;
+padding: 1em;
+vertical-align: top;
+}
+
+#view-main span.error {
+color: red;
+}
