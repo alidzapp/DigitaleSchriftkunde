@@ -1,3 +1,3 @@
 
-mogrify -path .\DigitaleSchriftkunde\thumb -thumbnail 100x100  ..\TextGridExport\*.jpg
-copy ..\TextGridExport\*.jpg .\DigitaleSchriftkunde\img\
+mogrify -path .\thumb\ -thumbnail 100x100  ..\TextGridExport\*.jpg
+mogrify -path .\img\ -resize 1500 ..\TextGridExport\*.jpg

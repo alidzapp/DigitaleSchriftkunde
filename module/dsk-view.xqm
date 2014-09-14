@@ -28,6 +28,7 @@ declare function dsk-view:coordinates($shape as element(svg:rect), $tgl) as xs:s
   let $image := $tgl//svg:image
   let $width := xs:integer($image/@width/string())
   let $height := xs:integer($image/@height/string())
+  let $percentage := 1500 div $width
 
   let $xs := substring-before($shape/@x/string(), '%')
   let $ys := substring-before($shape/@y/string(), '%')
@@ -39,10 +40,10 @@ declare function dsk-view:coordinates($shape as element(svg:rect), $tgl) as xs:s
   let $wp := if ($ws != '') then xs:double($ws) else 0
   let $hp := if ($hs != '') then xs:double($hs) else 0
 
-  let $x := ($width * $xp) div 100
-  let $y := ($height * $yp) div 100
-  let $w := ($width * $wp) div 100
-  let $h := ($height * $hp) div 100
+  let $x := ($width * $xp) div 100 * $percentage
+  let $y := ($height * $yp) div 100 * $percentage
+  let $w := ($width * $wp) div 100 * $percentage
+  let $h := ($height * $hp) div 100 * $percentage
   return
 
   string-join(($x, $y, $w, $h), ' ')

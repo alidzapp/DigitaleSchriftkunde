@@ -75,24 +75,28 @@ dsk.ImageWindow.prototype.getShapeFromData = function(id) {
 
 dsk.ImageWindow.prototype.showAnnotation = function(shape) {
   if (shape) shape.setStrokeWidth(5);
+  this.drawing_.draw();
 };
 
 
 
 dsk.ImageWindow.prototype.showAnnotationById = function(id) {
   this.showAnnotation(this.shapes_[id]);
+  this.drawing_.draw();
 };
 
 
 
 dsk.ImageWindow.prototype.hideAnnotation = function(shape) {
   if (shape) shape.setStrokeWidth(0);
+  this.drawing_.draw();
 };
 
 
 
 dsk.ImageWindow.prototype.hideAnnotationById = function(id) {
   this.hideAnnotation(this.shapes_[id]);
+  this.drawing_.draw();
 };
 
 
@@ -104,7 +108,7 @@ dsk.ImageWindow.prototype.initDrawing_ = function() {
   if (goog.userAgent.IE && !goog.userAgent.isVersionOrHigher(9)) {
     this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.VML);
   } else {
-    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.SVG);
+    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.CANVAS);
   }
   goog.dom.removeNode(content);
   this.drawing_.setModeView();
@@ -148,6 +152,12 @@ dsk.ImageWindow.prototype.handleHover_ = function(e) {
     self.highlighted_ = null;
     self.view_.getWindowTranscription1().unhighlight();
   }
+};
+
+
+
+dsk.ImageWindow.prototype.handleOut_ = function(e) {
+  this.view_.getWindowTranscription1().unhighlight();
 };
 
 
@@ -238,6 +248,15 @@ dsk.ImageWindow.prototype.registerToolbar_ = function() {
 
 
 
+dsk.ImageWindow.prototype.registerOut_ = function() {
+  var self = this;
+  goog.events.listen(self.drawing_.getCanvas().getElement(), goog.events.EventType.MOUSEOUT, function(e) {
+    self.handleOut_(e);
+  }, false, self);
+};
+
+
+
 dsk.ImageWindow.prototype.create_ = function() {
   var self = this;
   var json = goog.dom.dataset.get(self.element_, 'json');
@@ -246,5 +265,6 @@ dsk.ImageWindow.prototype.create_ = function() {
     self.initDrawing_();
     self.initShapes_();
     self.registerHover_();
+    self.registerOut_();
   });
 };
