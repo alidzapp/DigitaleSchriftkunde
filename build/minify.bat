@@ -1,9 +1,10 @@
 
-.\lib\closure-library\closure\bin\build\closurebuilder.py ^
-  --root=.\lib\closure-library\ ^
-  --root=.\src\ ^
+..\..\..\HKIKoeln\SemToNotes\client\lib\closure-library\closure\bin\build\closurebuilder.py ^
+  --root=..\..\..\HKIKoeln\SemToNotes\client\lib\closure-library\ ^
+  --root=..\..\..\HKIKoeln\SemToNotes\client\src\ ^
+  --root=.\client\^
   --namespace="dsk" ^
   --output_mode=compiled ^
-  --compiler_jar=.\lib\closure-compiler\compiler.jar ^
+  --compiler_jar=..\..\..\HKIKoeln\SemToNotes\client\lib\closure-compiler\compiler.jar ^
   --compiler_flags="--compilation_level=SIMPLE_OPTIMIZATIONS" ^
-  > ..\DigitaleSchriftkunde\lib\DigitaleSchriftkunde.js
+  > .\lib\DigitaleSchriftkunde.js
