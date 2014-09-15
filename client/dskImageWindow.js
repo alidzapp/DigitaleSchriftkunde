@@ -16,6 +16,7 @@ goog.require('goog.userAgent');
 goog.require('dsk.Window');
 goog.require('xrx.drawing.Drawing');
 goog.require('xrx.drawing.State');
+goog.require('xrx.drawing.tool.Magnifier');
 goog.require('xrx.graphics.Engine');
 goog.require('xrx.shape.Rect');
 
@@ -108,7 +109,7 @@ dsk.ImageWindow.prototype.initDrawing_ = function() {
   if (goog.userAgent.IE && !goog.userAgent.isVersionOrHigher(9)) {
     this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.VML);
   } else {
-    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.CANVAS);
+    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.Canvas);
   }
   goog.dom.removeNode(content);
   this.drawing_.setModeView();
@@ -183,6 +184,7 @@ dsk.ImageWindow.prototype.registerToolbar_ = function() {
     var iconZoomOut = goog.dom.getNextElementSibling(iconZoomIn);
     var iconRotateLeft = goog.dom.getNextElementSibling(iconZoomOut);
     var iconRotateRight = goog.dom.getNextElementSibling(iconRotateLeft);
+    var iconMagnifier = goog.dom.getNextElementSibling(iconRotateRight);
     var iconClose = goog.dom.getLastElementChild(toolbar);
     var checkbox = goog.dom.getElementsByTagNameAndClass('input', self.element_.id)[0];
     var content = goog.dom.getElementsByTagNameAndClass('div', 'content', self.element_)[0];
@@ -216,6 +218,12 @@ dsk.ImageWindow.prototype.registerToolbar_ = function() {
     goog.events.listen(iconRotateRight, goog.events.EventType.MOUSEOUT, function(e) {
       goog.style.setStyle(iconRotateRight, 'cursor', 'default');
     });
+    goog.events.listen(iconMagnifier, goog.events.EventType.MOUSEOVER, function(e) {
+      goog.style.setStyle(iconMagnifier, 'cursor', 'pointer');
+    });
+    goog.events.listen(iconMagnifier, goog.events.EventType.MOUSEOUT, function(e) {
+      goog.style.setStyle(iconMagnifier, 'cursor', 'default');
+    });
     goog.events.listen(iconClose, goog.events.EventType.MOUSEOVER, function(e) {
       goog.style.setStyle(iconClose, 'cursor', 'pointer');
     });
@@ -236,6 +244,10 @@ dsk.ImageWindow.prototype.registerToolbar_ = function() {
     });
     goog.events.listen(iconRotateRight, goog.events.EventType.CLICK, function(e) {
       self.drawing_.getViewbox().rotateRight();
+      self.drawing_.draw();
+    });
+    goog.events.listen(iconMagnifier, goog.events.EventType.CLICK, function(e) {
+      self.drawing_.getLayerTool().toggleMagnifier();
       self.drawing_.draw();
     });
     goog.events.listen(iconClose, goog.events.EventType.CLICK, function(e) {

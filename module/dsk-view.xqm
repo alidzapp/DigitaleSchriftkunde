@@ -127,6 +127,7 @@ return
             <img src="./res/zoomOut.png" title="Bild verkleinern"/>
             <img src="./res/rotateLeft.png" title="Bild nach links drehen"/>
             <img src="./res/rotateRight.png" title="Bild nach rechts drehen"/>
+            <img src="./res/magnifier.png" title="Lupe"/>
             <img src="./res/delete.png" title="Fenster schließen"/>
           </div>
         </div>
