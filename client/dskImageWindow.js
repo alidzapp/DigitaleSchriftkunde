@@ -109,7 +109,7 @@ dsk.ImageWindow.prototype.initDrawing_ = function() {
   if (goog.userAgent.IE && !goog.userAgent.isVersionOrHigher(9)) {
     this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.VML);
   } else {
-    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.Canvas);
+    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.CANVAS);
   }
   goog.dom.removeNode(content);
   this.drawing_.setModeView();
