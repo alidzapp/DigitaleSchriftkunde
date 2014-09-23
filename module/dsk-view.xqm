@@ -107,13 +107,13 @@ return
         <input type="checkbox" class="window-comment" name="window-comment" checked="checked"/>
         <span> | </span>
         <span>Entzifferung </span>
-        <input type="checkbox" class="window-transcription1" name="window-transcription1"/>
+        <input type="checkbox" class="window-transcription1" name="window-transcription1" checked="checked"/>
         <span> | </span>
         <span>Transkription </span>
         <input type="checkbox" class="window-transcription2" name="window-transcription2"/>
         <span> | </span>
         <span>Text-Bild-Verknüpfung </span>
-        <input type="checkbox" name="text-image-linking"/>
+        <input type="checkbox" name="text-image-linking" checked="checked"/>
       </div>
     </div>
   </div>
@@ -132,7 +132,7 @@ return
           </div>
         </div>
         <div class="content">
-          <img src="./img/{ dsk-textgrid:image-name($tei) }"/>
+          <img id="img" src="./img/{ dsk-textgrid:image-name($tei) }"/>
         </div>
       </div>
       <div class="resizable"></div>

@@ -17,7 +17,7 @@ goog.require('dsk.Window');
 goog.require('xrx.drawing.Drawing');
 goog.require('xrx.drawing.State');
 goog.require('xrx.drawing.tool.Magnifier');
-goog.require('xrx.graphics.Engine');
+goog.require('xrx.engine.Engine');
 goog.require('xrx.shape.Rect');
 
 
@@ -103,18 +103,21 @@ dsk.ImageWindow.prototype.hideAnnotationById = function(id) {
 
 
 dsk.ImageWindow.prototype.initDrawing_ = function() {
+  var self = this;
   var imageInner = goog.dom.getFirstElementChild(this.element_);
   var content = goog.dom.getLastElementChild(imageInner);
   var url = goog.dom.getFirstElementChild(content).src;
   if (goog.userAgent.IE && !goog.userAgent.isVersionOrHigher(9)) {
-    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.VML);
+    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.engine.Engine.VML);
   } else {
-    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.graphics.Engine.CANVAS);
+    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.engine.Engine.CANVAS);
   }
   goog.dom.removeNode(content);
   this.drawing_.setModeView();
-  this.drawing_.setBackgroundImage(url);
-  this.drawing_.draw();
+  this.drawing_.setBackgroundImage(url, function() {
+    self.drawing_.getViewbox().setOptimalWidth();
+    self.drawing_.draw();
+  });
 };
 
 
@@ -126,7 +129,7 @@ dsk.ImageWindow.prototype.initShapes_ = function() {
     self.shapes_[i] = self.getShapeFromData(i);
   });
   self.drawing_.getLayerShape().addShapes(goog.object.getValues(self.shapes_).slice(1));
-  self.drawing_.draw();
+  //self.drawing_.draw();
   self.drawing_.getLayerShape().setLocked(false);
 };
 

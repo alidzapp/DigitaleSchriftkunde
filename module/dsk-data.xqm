@@ -43,6 +43,9 @@ declare function dsk-data:items() {
       },
       element { $dsk-filter:ARCHIVE } {
         dsk-filter:get-key-by-word($dsk-filter:archive-object, dsk-data:archive($item))
+      },
+      element { $dsk-filter:LANGUAGE } {
+        dsk-filter:get-key-by-word($dsk-filter:language-object, dsk-data:language($item))
       }
     }
   }
@@ -78,6 +81,13 @@ declare function dsk-data:century($tei as element(tei:TEI)) {
 
 declare function dsk-data:archive($tei as element(tei:TEI)) {
   $tei//tei:institution/text()
+};
+
+
+
+declare function dsk-data:language($tei as element(tei:TEI)) {
+  if ($tei//tei:editor/text() = ('ullrich.lindemann@textgrid.de','katharina.wolff@textgrid.de')) then 'lateinische Schriftkunde'
+  else 'deutsche Schriftkunde'
 };
 
 

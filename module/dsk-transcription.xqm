@@ -41,8 +41,41 @@ let $xslt :=
     </labels>
   </xsl:variable>
 
+  <xsl:variable name="tei" select="/"/>
+
   <xsl:template match="/">
+    <xsl:call-template name="idno"/>
+    <xsl:call-template name="abstract"/>
     <xsl:apply-templates/>
+  </xsl:template>
+
+  <xsl:template match="tei:msIdentifier">
+  </xsl:template>
+  <xsl:template name="idno">
+    <b xmlns="http://www.w3.org/1999/xhtml">
+      <xsl:value-of select="$tei//tei:institution/text()"/>
+      <xsl:text>,&#160;</xsl:text>
+      <xsl:value-of select="$tei//tei:collection/text()"/>
+      <xsl:text>&#160;</xsl:text>
+      <xsl:value-of select="$tei//tei:idno/text()"/>
+    </b>
+    <br/>
+  </xsl:template>
+
+  <xsl:template match="tei:witness">
+  </xsl:template>
+  <xsl:template match="tei:abstract">
+  </xsl:template>
+  <xsl:template name="abstract">
+    <b xmlns="http://www.w3.org/1999/xhtml">
+      <xsl:apply-templates select="$tei//tei:abstract/tei:p"/>
+      <xsl:value-of select="$tei//tei:date/text()"/>
+      <xsl:text>&#160;(</xsl:text>
+      <xsl:value-of select="$tei//tei:placeName/text()"/>
+      <xsl:text>)</xsl:text>
+    </b>
+    <br/>
+    <br/>
   </xsl:template>
 
   <xsl:template match="tei:text">
@@ -51,8 +84,11 @@ let $xslt :=
   <xsl:template match="tei:teiHeader">
     <xsl:apply-templates/>
   </xsl:template>
+
+  <xsl:template match="tei:titleStmt">
+  </xsl:template>
   
-  <xsl:template match="tei:editor|tei:institution|tei:collection|tei:placeName|tei:date|tei:classCode">
+  <xsl:template match="tei:classCode">
     <xsl:param name="self" select="local-name(.)"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <span class="label">
@@ -69,21 +105,7 @@ let $xslt :=
   
   <xsl:template match="tei:keywords/tei:term">
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <span class="label">Schlagwort: </span>
-      <span><xsl:apply-templates/></span>
-    </div>
-  </xsl:template>
-  
-  <xsl:template match="tei:msIdentifier/tei:idno">
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <span class="label">Signatur: </span>
-      <span><xsl:apply-templates/></span>
-    </div>
-  </xsl:template>
-  
-  <xsl:template match="tei:abstract/tei:p">
-    <div class="abstract" xmlns="http://www.w3.org/1999/xhtml">
-      <span class="label">Kurzbetreff: </span><br/>
+      <span class="label">Archivaliengattung: </span>
       <span><xsl:apply-templates/></span>
     </div>
   </xsl:template>
@@ -106,7 +128,6 @@ let $xslt :=
   
   <xsl:template match="tei:editorialDecl/tei:p">
     <div class="editorialDecl" xmlns="http://www.w3.org/1999/xhtml">
-      <span class="label">Kommentar: </span><br/>
       <span><xsl:apply-templates/></span>
     </div>
   </xsl:template>

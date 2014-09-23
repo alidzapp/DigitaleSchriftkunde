@@ -4,6 +4,8 @@ xquery version "3.0";
 
 import module namespace dsk="http://semtonotes.github.io/SemToNotes/dsk"
   at '../module/dsk.xqm';
+import module namespace dsk-about="http://semtonotes.github.io/SemToNotes/dsk-about"
+  at '../module/dsk-about.xqm';
 import module namespace dsk-list="http://semtonotes.github.io/SemToNotes/dsk-list"
   at '../module/dsk-list.xqm';
 import module namespace dsk-view="http://semtonotes.github.io/SemToNotes/dsk-view"
@@ -52,6 +54,7 @@ let $compile :=
 (
   (: HTML pages :)
   local:compile-html(dsk:render(), 'index.html'),
+  local:compile-html(dsk-about:render(), 'about.html'),
   for $sort at $n in $dsk-list:sort
   return
   local:compile-html(dsk-list:render($sort), $dsk-list:html-names[$n]),

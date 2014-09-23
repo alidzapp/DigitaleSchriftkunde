@@ -61,7 +61,6 @@ dsk.View.prototype.initView_ = function() {
   this.window_[dsk.Window.COMMENT].setOptimalHeight();
   this.window_[dsk.Window.T1] = new dsk.HoverWindow(goog.dom.getElement(dsk.Window.T1), 1, this);
   this.window_[dsk.Window.T2] = new dsk.Window(goog.dom.getElement(dsk.Window.T2), 2);
-  this.window_[dsk.Window.T1].hide();
   this.window_[dsk.Window.T2].hide();
 };
 

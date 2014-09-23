@@ -57,16 +57,21 @@ declare function dsk-list:list-item($tei as element(tei:TEI), $id as xs:string) 
   let $pattern := replace(xmldb:decode(util:document-name($tei)), '(.){6}\.\d\.xml$', '')
   let $file-name := $conf:data//file:file[starts-with(@name, $pattern) and ends-with(@name, 'jpg')]/@name/string()
   let $category := ($tei//tei:term)[1]/text()
+  let $textgrid-html-name := dsk-textgrid:html-name($tei)
+  let $color := 
+    if ($difficulty = 'leicht') then 'LightSkyBlue'
+    else if ($difficulty = 'mittel') then 'Coral'
+    else 'DarkSlateGray'
   return
   <div class="list-item" id="{ $id }">
     <div class="thumb">
-      <img src="./thumb/{ $file-name[1] }" title="{ $file-name[1] }"/>
+      <a href="{ $textgrid-html-name }"><img src="./thumb/{ $file-name[1] }" title="{ $file-name[1] }"/></a>
     </div>
     <div class="abstract">
-      <span><a href="./{ dsk-textgrid:html-name($tei) }">{ $signature }</a></span><br/>
+      <span><a href="./{ $textgrid-html-name }">{ $signature }</a></span><br/>
       <span>{ $abstract } ({ $category })</span><br/>
-      <span>{ $date }</span><br/>
-      <span>{ $difficulty }</span>
+      <span class="bold">{ $date }</span><br/>
+      <span style="color:{ $color }">&#8226;&#160;{ $difficulty }</span>
     </div>
   </div>
 };
@@ -130,6 +135,8 @@ declare function dsk-list:render($sort as xs:string) {
             </span>
             <span class="h1">Schwierigkeitsgrad</span><br/>
             { dsk-list:filter-options($dsk-filter:difficulty-object) }
+            <span class="h1">Sprache</span><br/>
+            { dsk-list:filter-options($dsk-filter:language-object) }
             <span class="h1">Archivaliengattung</span><br/>
             { dsk-list:filter-options($dsk-filter:category-object) }
             <span class="h1">Jahrhundert</span><br/>
