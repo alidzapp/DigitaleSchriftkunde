@@ -62,13 +62,16 @@ declare function dsk-list:list-item($tei as element(tei:TEI), $id as xs:string) 
     if ($difficulty = 'leicht') then 'LightSkyBlue'
     else if ($difficulty = 'mittel') then 'Coral'
     else 'DarkSlateGray'
+  let $numpages := count($dsk-data:teis[@corresp=$tei/@n]) + 1
+  let $pages-label := 
+    if ($tei/@n) then '(' || xs:string($numpages) || ' Seiten)' else ()
   return
   <div class="list-item" id="{ $id }">
     <div class="thumb">
       <a href="{ $textgrid-html-name }"><img src="./thumb/{ $file-name[1] }" title="{ $file-name[1] }"/></a>
     </div>
     <div class="abstract">
-      <span><a href="./{ $textgrid-html-name }">{ $signature }</a></span><br/>
+      <span><a href="./{ $textgrid-html-name }">{ $signature }</a>&#160;{$pages-label}</span><br/>
       <span>{ $abstract } ({ $category })</span><br/>
       <span class="bold">{ $date }</span><br/>
       <span style="color:{ $color }">&#8226;&#160;{ $difficulty }</span>
@@ -81,27 +84,27 @@ declare function dsk-list:list-item($tei as element(tei:TEI), $id as xs:string) 
 declare function dsk-list:list-items($sort) {
 
   if ($sort = 'date-ascending') then
-    for $tei at $pos in $dsk-data:teis
+    for $tei at $pos in $dsk-data:teis-firstpage
     order by $tei//tei:date/@from ascending
     return
     dsk-list:list-item($tei, ($dsk-data:items/*)[$pos]/name())
   else if ($sort = 'date-descending') then
-    for $tei at $pos in $dsk-data:teis
+    for $tei at $pos in $dsk-data:teis-firstpage
     order by $tei//tei:date/@from descending
     return
     dsk-list:list-item($tei, ($dsk-data:items/*)[$pos]/name())
   else if ($sort = 'archive') then
-    for $tei at $pos in $dsk-data:teis
+    for $tei at $pos in $dsk-data:teis-firstpage
     order by $tei//tei:institution/text()
     return
     dsk-list:list-item($tei, ($dsk-data:items/*)[$pos]/name())
   else if ($sort = 'category') then
-    for $tei at $pos in $dsk-data:teis
+    for $tei at $pos in $dsk-data:teis-firstpage
     order by ($tei//tei:term)[1]/text()
     return
     dsk-list:list-item($tei, ($dsk-data:items/*)[$pos]/name())
   else 
-    for $tei at $pos in $dsk-data:teis
+    for $tei at $pos in $dsk-data:teis-firstpage
     order by $tei//tei:date/@from ascending
     return
     dsk-list:list-item($tei, ($dsk-data:items/*)[$pos]/name())

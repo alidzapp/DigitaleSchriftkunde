@@ -1,6 +1,291 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="./style/bayhsta.css" /><link rel="stylesheet" type="text/css" href="./style/dsk.css" /><script src="./lib/raphael/raphael.js"></script><script src="../../../HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script><script src="./client/deps.js"></script><!--script src="./lib/DigitaleSchriftkunde.js"></script--><script type="text/javascript">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="./style/bayhsta.css" /><link rel="stylesheet" type="text/css" href="./style/dsk.css" /><script src="./lib/raphael/raphael.js"></script><!--script src="../../../../GitHub/HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script>
+  <script src="./client/deps.js"></script--><script src="./lib/DigitaleSchriftkunde.js"></script><script type="text/javascript">
     goog.require('dsk');
-  </script></head><body><div id="view-header"><div id="title"><h1><a href="./liste.html">&lt;</a> Digitale Schriftkunde</h1><div id="options" class="noscript-invisible"><span>Bild </span><input type="checkbox" class="window-image" name="window-image" checked="checked" /><span> | </span><span>Kommentar </span><input type="checkbox" class="window-comment" name="window-comment" checked="checked" /><span> | </span><span>Entzifferung </span><input type="checkbox" class="window-transcription1" name="window-transcription1" checked="checked" /><span> | </span><span>Transkription </span><input type="checkbox" class="window-transcription2" name="window-transcription2" /><span> | </span><span>Text-Bild-Verknüpfung </span><input type="checkbox" name="text-image-linking" checked="checked" /></div></div></div><div id="view-main"><div id="window-image" data-json="./json/1338_bayhsta_KL-Formbach-Nr.8_fol.52v-53r.json"><div id="window-image-inner"><div class="h1"><span>, , </span><div class="toolbar"><img src="./res/zoomIn.png" title="Bild vergrößern" /><img src="./res/zoomOut.png" title="Bild verkleinern" /><img src="./res/rotateLeft.png" title="Bild nach links drehen" /><img src="./res/rotateRight.png" title="Bild nach rechts drehen" /><img src="./res/magnifier.png" title="Lupe" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><img id="img" src="./img/1338_bayhsta_KL-Formbach-Nr.8_fol.52v-53r.2208p.0.jpg" /></div></div><div class="resizable"></div></div><div id="view-text"><div id="view-text-inner"><div id="window-comment"><div class="h1"><span>Kommentar</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p"><b xmlns:tei="http://www.tei-c.org/ns/1.0">,&#160;&#160;</b><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" /><b xmlns:tei="http://www.tei-c.org/ns/1.0">&#160;()</b><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" /><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" /><div xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="label">Archivaliengattung: </span><span></span></div><div xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="label">Schwierigkeitsgrad: </span><span></span><div class="classCode"></div></div><div xmlns:tei="http://www.tei-c.org/ns/1.0" class="handNotes"><span class="label">Schreiberhände: </span><br /><ul><li> (S1)</li><li> (S2)</li><li> (S3)</li></ul></div><div xmlns:tei="http://www.tei-c.org/ns/1.0" class="editorialDecl"><span></span></div></div></div><div class="resizable"></div></div><div id="window-transcription1"><div class="h1"><span>Entzifferung</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p"><p xmlns:tei="http://www.tei-c.org/ns/1.0"><div class="tooltip">(Absatz Beginn)</div><div class="tooltip">(Absatz Ende)</div></p><span xmlns:tei="http://www.tei-c.org/ns/1.0" class="hr">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><ul xmlns:tei="http://www.tei-c.org/ns/1.0"><li></li></ul></div></div><div class="resizable"></div></div><div id="window-transcription2"><div class="h1"><span>Transkription</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p"><p xmlns:tei="http://www.tei-c.org/ns/1.0"><div class="tooltip">(Absatz Beginn)</div><div class="tooltip">(Absatz Ende)</div></p><span xmlns:tei="http://www.tei-c.org/ns/1.0" class="hr">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><ul xmlns:tei="http://www.tei-c.org/ns/1.0"><li></li></ul></div></div><div class="resizable"></div></div></div></div></div><script type="text/javascript"><!--
+  </script></head><body><div id="view-header"><div id="title"><h1><a href="./liste.html">&lt;</a> Digitale Schriftkunde</h1><div id="options" class="noscript-invisible"><span>Bild </span><input type="checkbox" class="window-image" name="iwindow-image" checked="checked" /><span> | </span><span>Kommentar </span><input type="checkbox" class="window-comment" name="iwindow-comment" checked="checked" /><span> | </span><span>Entzifferung </span><input type="checkbox" class="window-transcription1" name="iwindow-transcription1" checked="checked" /><span> | </span><span>Transkription </span><input type="checkbox" class="window-transcription2" name="iwindow-transcription2" /><span> | </span><span>Text-Bild-Verknüpfung </span><input type="checkbox" name="text-image-linking" checked="checked" /></div></div></div><div id="view-main"><div id="window-image" data-json="./json/1338_bayhsta_KL-Formbach-Nr.8_fol.52v-53r.json"><div id="view-pages"></div><div id="window-image-inner"><div class="h1"><span>BayHStA, Klosterliteralien Formbach Nr. 8, fol 52v-53r</span><div class="toolbar"><img src="./res/zoomIn.png" title="Bild vergrößern" /><img src="./res/zoomOut.png" title="Bild verkleinern" /><img src="./res/rotateLeft.png" title="Bild nach links drehen" /><img src="./res/rotateRight.png" title="Bild nach rechts drehen" /><img src="./res/magnifier.png" title="Lupe" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><img id="img" src="./img/1338_bayhsta_KL-Formbach-Nr.8_fol.52v-53r.2208p.0.jpg" /></div></div><div class="resizable"></div></div><div id="view-text"><div id="view-text-inner"><div id="window-comment"><div class="h1"><span>Kommentar</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p"><b xmlns:tei="http://www.tei-c.org/ns/1.0">BayHStA,&#160;Klosterliteralien Formbach&#160;Nr. 8, fol 52v-53r</b><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" /><b xmlns:tei="http://www.tei-c.org/ns/1.0">Güter- und Abgabenverzeichnis des Klosters Formbach für dessen Tiroler Besitzungen, hier gezeigt werden die Käseabgaben.1338&#160;(Formbach)</b><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" /><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" />
+	
+		
+			
+			
+				
+			
+			
+				
+					
+				
+				
+					
+				
+			
+		
+		
+			
+				
+					<div xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="label">Archivaliengattung: </span><span>Amtsbuch</span></div>
+				
+				<div xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="label">Schwierigkeitsgrad: </span><span>mittel</span><div class="classCode"></div></div>
+			
+			
+			<div xmlns:tei="http://www.tei-c.org/ns/1.0" class="handNotes"><span class="label">Schreiberhände: </span><br /><ul><li>unbekannter Schreiber1  (S1)</li><li>unbekannter Schreiber 2 (S2)</li><li>unbekannter Schreiber 3 (S3)</li><li>unbekannter Schreiber 4 (S4)</li></ul></div>
+		
+		
+			
+				<div xmlns:tei="http://www.tei-c.org/ns/1.0" class="editorialDecl"><span> Das Büchlein enthält eine Auflistung der Besitzungen, Leute und Abgaben des Klosters. Hier wird ein Ausschnitt aus den Käseabgaben der Besitzungen in der Steiermark und Österreich gezeigt.
+<br />
+<br />Das Käsekapitel beginnt mit rubrizierten, einführenden Zeilen darüber, dass diese Abgaben um Pfingsten herum zu leisten waren. Es folgen darunter, angeführt von einer rubrizierten Initiale oder Zeile, die Auflistungen, geordnet nach Orten und darunter wiederum geordnet nach den Namen der Abgebenden.
+<br />
+<br />Das Verzeichnis weist eine typische Kanzleischrift des 14. Jahrhunderts mit Hervorhebungen durch Rubrizerung auf. 
+</span></div>
+			
+		
+		
+	
+	
+</div></div><div class="resizable"></div></div><div id="window-transcription1"><div class="h1"><span>Entzifferung</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p">
+	
+	
+
+<p xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="tooltip">(Absatz Beginn)</span><br /><span class="tei_lb label">1&#160;</span><span class="tei_add_left"></span><span id="a3_start"></span><span class="tei_add_left"><span class="tei_handShift">(unbekannter Schreiber 3:) </span><span class="hover-text">nunc&#160;vero&#160;16&#160;d(enarios)</span><span class="superscript"><span class="hover-text">a)</span></span><span class="hover-text">&#160;.</span></span><span id="a3_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">2&#160;</span><span class="tei_add_left"></span><span class="tei_handShift">(unbekannter Schreiber1 :) </span><span id="a4_start"></span><span class="hover-text">No(ta).&#160;S(er)uitiu(m)&#160;Caseo(rum)&#160;in&#160;festo</span><span id="a4_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">3&#160;</span><span class="tei_add_left"></span><span id="a5_start"></span><span class="hover-text">Pentecosten.&#160;Quo(rum)&#160;quilib(et)</span><span id="a5_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">4&#160;</span><span class="tei_add_left"></span><span id="a6_start"></span><span class="hover-text">ualet.&#160;vi.&#160;d(e)n(arios)&#160;vsuales.</span><span id="a6_end"></span><span class="hover-text">
+</span><span class="hover-text">
+</span><br /><span class="tei_lb label">5&#160;</span><span class="tei_add_left"></span><span id="a7_start"></span><span class="hover-text">DE&#160;Gostritzpach&#160;.iiij.&#160;Caseos.</span><span id="a7_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">6&#160;</span><span class="tei_add_left"></span><span id="a8_start"></span><span class="hover-text">Purchlin(us)&#160;.j.&#160;Ca(seum).</span><span id="a8_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">7&#160;</span><span class="tei_add_left"></span><span id="a9_start"></span><span class="hover-text">In&#160;Curia.&#160;Merchlinne&#160;.iij.&#160;Ca(seos).</span><span id="a9_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">8&#160;</span><span class="tei_add_left"></span><span id="a10_start"></span><span class="hover-text">In&#160;Pirchtal&#160;.j.&#160;Ca(seum).</span><span id="a10_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">9&#160;</span><span class="tei_add_left"></span><span id="a11_start"></span><span class="hover-text">Egprecht&#160;.Walth(er)&#160;.Nycolaus&#160;cu(m)</span><span id="a11_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">10&#160;</span><span class="tei_add_left"></span><span id="a12_start"></span><span class="hover-text">(con)iu(ge)&#160;.iij.&#160;Cas(eos).</span><span id="a12_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">11&#160;</span><span class="tei_add_left"></span><span id="a13_start"></span><span class="hover-text">Eber.&#160;Hainr(icus)&#160;.Stipulator&#160;.iij.&#160;Ca(seos).</span><span id="a13_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">12&#160;</span><span class="tei_add_left"></span><span id="a14_start"></span><span class="hover-text">Seydlinus&#160;Vro(n)leich</span><span class="superscript"><span class="hover-text">b)</span></span><span class="hover-text">&#160;.&#160;ij&#160;Ca(seos).</span><span id="a14_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">13&#160;</span><span class="tei_add_left"></span><span id="a15_start"></span><span class="hover-text">During(us)&#160;Cum&#160;(con)iu(ge)&#160;.iij.&#160;Ca(seos).</span><span id="a15_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">14&#160;</span><span class="tei_add_left"></span><span id="a16_start"></span><span class="hover-text">Hainric(us)&#160;Stengel&#160;.ij.&#160;Ca(seos).</span><span id="a16_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">15&#160;</span><span class="tei_add_left"></span><span id="a17_start"></span><span class="hover-text">D(e)&#160;Varchech&#160;.iij.&#160;Ca(seos).</span><span id="a17_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">16&#160;</span><span class="tei_add_left"></span><span id="a18_start"></span><span class="hover-text">D(e)&#160;Purchstal&#160;.iij.&#160;Ca(seos).</span><span id="a18_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">17&#160;</span><span class="tei_add_left"></span><span id="a19_start"></span><span class="hover-text">Haimo&#160;.ij.&#160;Ca(seos).</span><span id="a19_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">18&#160;</span><span class="tei_add_left"></span><span id="a20_start"></span><span class="hover-text">De&#160;Aw&#160;Infra&#160;fo(rum)&#160;.Schadw(ien).</span><span class="superscript"><span class="hover-text">c)</span></span><span id="a20_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">19&#160;</span><span class="tei_add_left"></span><span id="a21_start"></span><span class="hover-text">Walther(us)&#160;in&#160;pum(er)io</span><span class="superscript"><span class="hover-text">d)</span></span><span class="hover-text">&#160;&#160;.vj.&#160;Ca(seos).</span><span id="a21_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">20&#160;</span><span class="tei_add_left"></span><span id="a22_start"></span><span class="hover-text">Chu(n)rad(us)sub&#160;Tylia&#160;.j.&#160;</span><span class="superscript"><span class="hover-text">e)</span></span><span class="hover-text">&#160;&#160;Ca(seum).</span><span id="a22_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">21&#160;</span><span class="tei_add_left"></span><span id="a23_start"></span><span class="hover-text">Vlricus&#160;Per&#160;maist(er)&#160;cu(m)&#160;(con)iu(ge)&#160;.j.&#160;Ca(seum)</span><span id="a23_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">22&#160;</span><span class="tei_add_left"></span><span id="a24_start"></span><span class="hover-text">Chuentz&#160;.j.&#160;Case(um).</span><span id="a24_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">23&#160;</span><span class="tei_add_left"></span><span id="a25_start"></span><span class="hover-text">Steg(er)&#160;</span><span class="superscript"><span class="hover-text">f)</span></span><span class="hover-text">&#160;&#160;.iiij.&#160;Ca(seos).</span><span id="a25_end"></span><span class="hover-text">	
+</span><br /><span class="tei_lb label">24&#160;</span><span class="tei_add_left"></span><span id="a26_start"></span><span class="hover-text">Hainr(icus)&#160;Sturmo&#160;Cu(m)&#160;(con)iu(ge)&#160;.ij.&#160;Ca(seos).</span><span id="a26_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">25&#160;</span><span class="tei_add_left"></span><span id="a27_start"></span><span class="hover-text">D(e)&#160;peren&#160;Eben&#160;.ij.&#160;Ca(seos).</span><span id="a27_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">26&#160;</span><span class="tei_add_left"></span><span id="a28_start"></span><span class="hover-text">Gotslinus&#160;in&#160;Colle&#160;cu(m)&#160;(con)iu(ge)&#160;.ij.&#160;Ca(seos)</span><span id="a28_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">27&#160;</span><span class="tei_add_left"></span><span id="a29_start"></span><span class="hover-text">De&#160;Grasperch&#160;.iiij.&#160;Ca(seos).</span><span id="a29_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">28&#160;</span><span class="tei_add_left"></span><span id="a30_start"></span><span class="hover-text">d(e)&#160;Weissenpach</span><span id="a30_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">29&#160;</span><span class="tei_add_left"></span><span id="a31_start"></span><span class="hover-text">Raydo&#160;.iiij.&#160;Ca(seos).</span><span id="a31_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">30&#160;</span><span class="tei_add_left"></span><span id="a32_start"></span><span class="hover-text">Johannes&#160;.j.&#160;Ca(seum).</span><span id="a32_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">31&#160;</span><span class="tei_add_left"></span><span id="a33_start"></span><span class="hover-text">Andrea&#160;.j.&#160;Ca(seum).</span><span id="a33_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">32&#160;</span><span class="tei_add_left"></span><span id="a34_start"></span><span class="hover-text">H(er)mann(us)&#160;.j.&#160;Ca(seum).</span><span id="a34_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">33&#160;</span><span class="tei_add_left"></span><span id="a35_start"></span><span class="hover-text">Nycolaus&#160;.j.&#160;Ca(seum).</span><span id="a35_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">34&#160;</span><span class="tei_add_left"></span><span id="a36_start"></span><span class="hover-text">Idem&#160;Ambo&#160;.j.&#160;Ca(seum).</span><span id="a36_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">35&#160;</span><span class="tei_add_left"></span><span id="a37_start"></span><span class="hover-text">Diener&#160;.iiij.&#160;Ca(seos).</span><span id="a37_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">36&#160;</span><span class="tei_add_left"></span><span id="a38_start"></span><span class="hover-text">D(e)&#160;Grueb&#160;H(er)ma(n)n(us)&#160;(et)&#160;Raido&#160;.iij.&#160;Ca(seos).</span><span id="a38_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">37&#160;</span><span class="tei_add_left"></span><span id="a39_start"></span><span class="hover-text">D(e)&#160;Pirchech&#160;Vaschang(us)&#160;.iij.&#160;Ca(seos).</span><span id="a39_end"></span><span class="hover-text">
+
+</span><div class="tei_pb"><span>//</span><span class="tooltip">(Seitenumbruch)</span></div><span class="hover-text">
+</span><br /><span class="tei_lb label">38&#160;</span><span class="tei_add_left"></span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span id="a40_start"></span><span class="hover-text">8</span><span class="superscript"><span class="hover-text">g)</span></span><span id="a40_end"></span><span class="hover-text">&#160;</span><span id="a41_start"></span><span class="tei_add_right"><span>&#160;&#160;&#160;&#160;</span><span class="tei_handShift">(unbekannter Schreiber 4:) </span><span class="hover-text">53</span></span><span id="a41_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">39&#160;</span><span class="tei_add_left"></span><span class="tei_handShift">(unbekannter Schreiber1 :) </span><span id="a42_start"></span><span class="hover-text">D(e)&#160;Chienperg&#160;.j.&#160;Ca(seum).</span><span id="a42_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">40&#160;</span><span class="tei_add_left"></span><span id="a43_start"></span><span class="hover-text">D(e)&#160;Oden&#160;Lehen&#160;.iiij.&#160;Ca(seos).</span><span id="a43_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">41&#160;</span><span class="tei_add_left"></span><span id="a44_start"></span><span class="hover-text">D(e)&#160;f</span><svg xmlns="http://www.w3.org/2000/svg" width=".7em" height="1.2em"><g><text text-anchor="middle" y="1.2em" x="50%">u</text><text text-anchor="middle" font-size=".7em" y=".8em" x="50%">e</text></g></svg><span class="hover-text">rt&#160;H(er)ma(n)n(us)&#160;.iiij.&#160;Ca(seos).</span><span id="a44_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">42&#160;</span><span class="tei_add_left"></span><span id="a45_start"></span><span class="hover-text">D(e)&#160;f</span><svg xmlns="http://www.w3.org/2000/svg" width=".7em" height="1.2em"><g><text text-anchor="middle" y="1.2em" x="50%">u</text><text text-anchor="middle" font-size=".7em" y=".8em" x="50%">e</text></g></svg><span class="hover-text">rt&#160;Paulus&#160;.iiij.&#160;Ca(seos).</span><span id="a45_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">43&#160;</span><span class="tei_add_left"></span><span id="a46_start"></span><span class="hover-text">Hainr(icus)&#160;in&#160;area&#160;Spetinne&#160;.j.&#160;Ca(seum).</span><span id="a46_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">44&#160;</span><span class="tei_add_left"></span><span id="a47_start"></span><span class="hover-text">G(er)hard(us)&#160;dornator&#160;cu(m)&#160;(con)iu(ge)&#160;.ij.&#160;Ca(seos).</span><span id="a47_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">45&#160;</span><span class="tei_add_left"></span><span id="a48_start"></span><span class="hover-text">De&#160;Werd.</span><span id="a48_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">46&#160;</span><span class="tei_add_left"></span><span id="a49_start"></span><span class="hover-text">HErma(n)nus&#160;Schrantz&#160;.j.&#160;Ca(seum).</span><span id="a49_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">47&#160;</span><span class="tei_add_left"></span><span id="a50_start"></span><span class="hover-text">Ekardus&#160;.j.&#160;Ca(seum).</span><span id="a50_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">48&#160;</span><span class="tei_add_left"></span><span id="a51_start"></span><span class="hover-text">Artolfus&#160;.ij.&#160;Ca(seos).</span><span id="a51_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">49&#160;</span><span class="tei_add_left"></span><span id="a52_start"></span><span class="hover-text">Poschlinus&#160;.ij.&#160;Ca(seos).</span><span id="a52_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">50&#160;</span><span class="tei_add_left"></span><span id="a53_start"></span><span class="hover-text">Iacobinna&#160;.j.&#160;Ca(seum).</span><span id="a53_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">51&#160;</span><span class="tei_add_left"></span><span id="a54_start"></span><span class="hover-text">Fleminch&#160;.ij.&#160;Ca(seos).</span><span id="a54_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">52&#160;</span><span class="tei_add_left"></span><span id="a55_start"></span><span class="hover-text">Hadmuet(er)&#160;.j.&#160;Ca(seum).</span><span id="a55_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">53&#160;</span><span class="tei_add_left"></span><span id="a56_start"></span><span class="hover-text">Rebstoch&#160;.j.&#160;Ca(seum).</span><span id="a56_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">54&#160;</span><span class="tei_add_left"></span><span id="a57_start"></span><span class="hover-text">Schekel&#160;.j.&#160;Ca(seum).</span><span id="a57_end"></span><span class="hover-text">
+</span><br /><span class="tei_lb label">55&#160;</span><span class="tei_add_left"></span><span id="a58_start"></span><span class="hover-text">Reicher&#160;Schrantz&#160;.ij.&#160;Ca(seos).</span><span id="a58_end"></span><span class="hover-text">&#160;</span><span class="tei_add_right"><span>&#160;&#160;&#160;&#160;</span><span id="a59_start"></span><span class="hover-text">Item&#160;in&#160;Arena</span><span id="a59_end"></span><span class="hover-text">&#160;de&#160;.j.&#160;feodo&#160;.i.&#160;ca(seum)</span><span class="superscript"><span class="hover-text">h)</span></span></span><span class="hover-text">
+</span><br /><span class="tei_lb label">56&#160;</span><span class="tei_add_left"></span><span class="tei_handShift">(unbekannter Schreiber1 :) </span><span class="hover-text">Leupoldus&#160;.ij.&#160;Ca(seos).&#160;
+</span><br /><span class="tei_lb label">57&#160;</span><span class="tei_add_left"></span><span class="hover-text">Hertlinus&#160;.ij.&#160;Ca(seos).
+</span><br /><span class="tei_lb label">58&#160;</span><span class="tei_add_left"></span><span class="hover-text">Hainric(us)&#160;in&#160;arena&#160;.ij.&#160;Ca(seos).
+</span><br /><span class="tei_lb label">59&#160;</span><span class="tei_add_left"></span><span class="hover-text">Gesel&#160;.j.&#160;Ca(seum)
+</span><br /><span class="tei_lb label">60&#160;</span><span class="tei_add_left"></span><span class="hover-text">laubschober&#160;.j.&#160;Ca(seum).
+
+</span><br /><span class="tei_lb label">61&#160;</span><span class="tei_add_left"></span><span class="hover-text">De&#160;Chotlacho
+
+</span><br /><span class="tei_lb label">62&#160;</span><span class="tei_add_left"></span><span class="hover-text">STephanus&#160;.iiij.&#160;Ca(seos).
+</span><br /><span class="tei_lb label">63&#160;</span><span class="tei_add_left"></span><span class="hover-text">Relicta&#160;Sifridi</span><span class="superscript"><span class="hover-text">i)</span></span><span class="hover-text">&#160;&#160;.iiij.&#160;Ca(seos).
+</span><br /><span class="tei_lb label">64&#160;</span><span class="tei_add_left"></span><span class="hover-text">Hilp(er)tus&#160;cum&#160;(con)iu(ge)&#160;.iiij.&#160;Ca(seos).
+
+</span><br /><span class="tei_lb label">65&#160;</span><span class="tei_add_left"></span><span class="hover-text">DE&#160;Prevna
+
+</span><br /><span class="tei_lb label">66&#160;</span><span class="tei_add_left"></span><span class="hover-text">DE&#160;Puech&#160;.ij.&#160;Ca(seos).
+</span><br /><span class="tei_lb label">67&#160;</span><span class="tei_add_left"></span><span class="hover-text">D(e)&#160;Payrpach&#160;.ij.&#160;Ca(seos).
+</span><br /><span class="tei_lb label">68&#160;</span><span class="tei_add_left"></span><span class="hover-text">D(e)&#160;Tupeln&#160;.j.&#160;Ca(seum).
+
+</span><br /><span class="tei_lb label">69&#160;</span><span class="tei_add_left"></span><span class="hover-text">De&#160;Smid(en)&#160;dorf
+
+</span><br /><span class="tei_lb label">70&#160;</span><span class="tei_add_left"></span><span class="hover-text">HErma(n)n(us)&#160;.j.&#160;Ca(seum).
+</span><br /><span class="tei_lb label">71&#160;</span><span class="tei_add_left"></span><span class="hover-text">Vlric(us)&#160;.j.&#160;Ca(seum).
+</span><br /><span class="tei_lb label">72&#160;</span><span class="tei_add_left"></span><span class="hover-text">Nicolaus&#160;fr(ater)&#160;ip(s)ius&#160;.ij.Ca(seos)
+</span><br /><span class="tei_lb label">73&#160;</span><span class="tei_add_left"></span><span class="hover-text">Albert(us)&#160;Molendinator&#160;.j.Ca(seum).
+</span><br /><span class="tei_lb label">74&#160;</span><span class="tei_add_left"></span><span class="hover-text">Jacobus&#160;winchler&#160;.j.&#160;Ca(seum).
+</span><br /><span class="tei_lb label">75&#160;</span><span class="tei_add_left"></span><span class="hover-text">Hainr(icus)&#160;List&#160;.iij.&#160;Ca(seos).
+
+</span><span class="tooltip">(Absatz Ende)</span></p>
+
+
+<span xmlns:tei="http://www.tei-c.org/ns/1.0" class="hr">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><ul xmlns:tei="http://www.tei-c.org/ns/1.0">
+<div><span>a)</span>&#160;Nachtrag am oberen linken Rand von späterer Hand</div>
+<div><span>b)</span>&#160;hier ist unklar, ob der Strich über dem o ein verunglückter Kürzungsstrick ist. Sonst müsste es "Vroleich" lauten</div>
+<div><span>c)</span>&#160;vermutlich heute Schottwien (NÖ, PB Neunkirchen, Österreich); direkt daneben liegt das genannte Au;</div>
+<div><span>d)</span>&#160;evtl. für pomerio = lat. Obstgarten</div>
+<div><span>e)</span>&#160;vermutlich <span class="tei_quote">j</span><span class="tooltip">(Textzitat)</span>, allerding mit schwungvollem Anstrich ausgeführt</div>
+<div><span>f)</span>&#160;vermutlich <span class="tei_quote">Steger</span><span class="tooltip">(Textzitat)</span>, die Kürzung für <span class="tei_quote">-er</span><span class="tooltip">(Textzitat)</span> wurde vom Schreiber ungewöhnlich weit nach unten gezogen</div>
+<div><span>g)</span>&#160;evtl. keine <span class="tei_quote">8</span><span class="tooltip">(Textzitat)</span>, sondern von der gegenüberliegenden Seite abgefärbte Tinte (vom et-Zeichen?)</div>
+<div><span>h)</span>&#160;andere Hand bzw. später angefügte Randnotiz</div>
+<div><span>i)</span>&#160;im Namen <span class="tei_quote">Sifridi</span><span class="tooltip">(Textzitat)</span> wurde vor dem Buchstaben <span class="tei_quote">f</span><span class="tooltip">(Textzitat)</span> vermutlich eine Ausbesserung vorgenommen </div>
+</ul>
+
+
+
+
+
+
+
+
+
+
+ 
+
+	
+</div></div><div class="resizable"></div></div><div id="window-transcription2"><div class="h1"><span>Transkription</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p">
+	
+	
+
+<p xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="tooltip">(Absatz Beginn)</span><br /><span class="tei_lb label">1&#160;</span><span class="hover-text">
+</span><br /><span class="tei_lb label">2&#160;</span><span class="tei_add_left"><span class="tei_handShift">(unbekannter Schreiber 3:) </span><span class="hover-text">nunc&#160;vero&#160;16&#160;denarios</span><span class="superscript"><span class="hover-text">a)</span></span><span class="hover-text">&#160;.</span></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">3&#160;</span><span class="tei_handShift">(unbekannter Schreiber1 :) </span><span class="hover-text">Nota&#160;servitium&#160;caseorum&#160;in&#160;festo&#160;
+</span><br /><span class="tei_lb label">4&#160;</span><span class="hover-text">pentecosten&#160;quorum&#160;quilibet
+</span><br /><span class="tei_lb label">5&#160;</span><span class="hover-text">valet&#160;VI&#160;denarios&#160;usuales.
+</span><span class="hover-text">
+</span><br /><span class="tei_lb label">6&#160;</span><span class="hover-text">De&#160;Gostritzpach&#160;IIII&#160;caseos.
+</span><br /><span class="tei_lb label">7&#160;</span><span class="hover-text">Purchlinus&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">8&#160;</span><span class="hover-text">In&#160;Curia&#160;Merchlinne&#160;IIII&#160;caseos.
+</span><br /><span class="tei_lb label">9&#160;</span><span class="hover-text">In&#160;Pirchtal&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">10&#160;</span><span class="hover-text">Egprecht,&#160;Walther,&#160;Nycolaus&#160;cum
+</span><br /><span class="tei_lb label">11&#160;</span><span class="hover-text">coniuge&#160;III&#160;caseos.
+</span><br /><span class="tei_lb label">12&#160;</span><span class="hover-text">Eber,&#160;Hainricus&#160;Stipulator&#160;III&#160;caseos.
+</span><br /><span class="tei_lb label">13&#160;</span><span class="hover-text">Seydlinus&#160;Vronleich</span><span class="superscript"><span class="hover-text">b)</span></span><span class="hover-text">&#160;&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">14&#160;</span><span class="hover-text">Duringus&#160;cum&#160;coniuge&#160;III&#160;caseos.
+</span><br /><span class="tei_lb label">15&#160;</span><span class="hover-text">Hainricus&#160;Stengel&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">16&#160;</span><span class="hover-text">De&#160;Varchech&#160;III&#160;caseos.
+</span><br /><span class="tei_lb label">17&#160;</span><span class="hover-text">De&#160;Purchstal&#160;III&#160;caseos.
+</span><br /><span class="tei_lb label">18&#160;</span><span class="hover-text">Haimo&#160;II&#160;caseos.
+
+</span><br /><span class="tei_lb label">19&#160;</span><span class="hover-text">De&#160;Aw&#160;infra&#160;forum&#160;Schadw(ien)</span><span class="superscript"><span class="hover-text">c)</span></span><span class="hover-text">&#160;
+</span><br /><span class="tei_lb label">20&#160;</span><span class="hover-text">Waltherus&#160;in&#160;pumerio</span><span class="superscript"><span class="hover-text">d)</span></span><span class="hover-text">&#160;&#160;VI&#160;caseos.
+</span><br /><span class="tei_lb label">21&#160;</span><span class="hover-text">Chunradussub&#160;Tylia&#160;I</span><span class="superscript"><span class="hover-text">e)</span></span><span class="hover-text">&#160;&#160;caseum.
+</span><br /><span class="tei_lb label">22&#160;</span><span class="hover-text">Ulricus&#160;Permaister&#160;cum&#160;coniuge&#160;I&#160;caseum
+</span><br /><span class="tei_lb label">23&#160;</span><span class="hover-text">Chuentz&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">24&#160;</span><span class="hover-text">Steger</span><span class="superscript"><span class="hover-text">f)</span></span><span class="hover-text">&#160;&#160;IIII&#160;caseos.	
+</span><br /><span class="tei_lb label">25&#160;</span><span class="hover-text">Hainricus&#160;Sturmo&#160;cum&#160;coniuge&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">26&#160;</span><span class="hover-text">De&#160;Peren&#160;Eben&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">27&#160;</span><span class="hover-text">Gotslinus&#160;in&#160;Colle&#160;cum&#160;coniuge&#160;II&#160;caseos
+</span><br /><span class="tei_lb label">28&#160;</span><span class="hover-text">De&#160;Grasperch&#160;IIII&#160;caseos.
+
+</span><br /><span class="tei_lb label">29&#160;</span><span class="hover-text">De&#160;Weissenpach
+</span><br /><span class="tei_lb label">30&#160;</span><span class="hover-text">Raydo&#160;IIII&#160;caseos.
+</span><br /><span class="tei_lb label">31&#160;</span><span class="hover-text">Johannes&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">32&#160;</span><span class="hover-text">Andrea&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">33&#160;</span><span class="hover-text">Hermannus&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">34&#160;</span><span class="hover-text">Nycolaus&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">35&#160;</span><span class="hover-text">Idem&#160;Ambo&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">36&#160;</span><span class="hover-text">Diener&#160;IIII&#160;caseos.
+</span><br /><span class="tei_lb label">37&#160;</span><span class="hover-text">De&#160;Grueb&#160;Hermannus&#160;et&#160;Raido&#160;IIII&#160;caseos.
+</span><br /><span class="tei_lb label">38&#160;</span><span class="hover-text">De&#160;Pirchech&#160;Vaschangus&#160;III&#160;caseos.
+
+</span><div class="tei_pb"><span>//</span><span class="tooltip">(Seitenumbruch)</span></div><span class="hover-text">
+&#160;</span><br /><span class="tei_lb label">39&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span class="hover-text">8</span><span class="superscript"><span class="hover-text">g)</span></span><span class="hover-text">&#160;&#160;</span><span class="tei_add_right"><span>&#160;&#160;&#160;&#160;</span><span class="tei_handShift">(unbekannter Schreiber 4:) </span><span class="hover-text">53</span></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">40&#160;</span><span class="tei_handShift">(unbekannter Schreiber1 :) </span><span class="hover-text">De&#160;Chienperg&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">41&#160;</span><span class="hover-text">De&#160;Oden&#160;Lehen&#160;IIII&#160;caseos.
+</span><br /><span class="tei_lb label">42&#160;</span><span class="hover-text">De&#160;F</span><svg xmlns="http://www.w3.org/2000/svg" width=".7em" height="1.2em"><g><text text-anchor="middle" y="1.2em" x="50%">u</text><text text-anchor="middle" font-size=".7em" y=".8em" x="50%">e</text></g></svg><span class="hover-text">rt&#160;Hermannus&#160;IIII&#160;caseos.
+</span><br /><span class="tei_lb label">43&#160;</span><span class="hover-text">De&#160;F</span><svg xmlns="http://www.w3.org/2000/svg" width=".7em" height="1.2em"><g><text text-anchor="middle" y="1.2em" x="50%">u</text><text text-anchor="middle" font-size=".7em" y=".8em" x="50%">e</text></g></svg><span class="hover-text">rt&#160;Paulus&#160;IIII&#160;caseos.
+</span><br /><span class="tei_lb label">44&#160;</span><span class="hover-text">Hainricus&#160;in&#160;area&#160;Spetinne&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">45&#160;</span><span class="hover-text">Gerhardus&#160;dornator&#160;cum&#160;coniuge&#160;II&#160;caseos.
+
+</span><br /><span class="tei_lb label">46&#160;</span><span class="hover-text">De&#160;Werd.
+
+</span><br /><span class="tei_lb label">47&#160;</span><span class="hover-text">Hermannus&#160;Schrantz&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">48&#160;</span><span class="hover-text">Ekardus&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">49&#160;</span><span class="hover-text">Artolfus&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">50&#160;</span><span class="hover-text">Poschlinus&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">51&#160;</span><span class="hover-text">Iacobinna&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">52&#160;</span><span class="hover-text">Fleminch&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">53&#160;</span><span class="hover-text">Hadmueter&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">54&#160;</span><span class="hover-text">Rebstoch&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">55&#160;</span><span class="hover-text">Schekel&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">56&#160;</span><span class="hover-text">Reicher&#160;Schrantz&#160;II&#160;caseos.&#160;</span><span class="tei_add_right"><span>&#160;&#160;&#160;&#160;</span><span class="tei_handShift">(unbekannter Schreiber 2:) </span><span class="hover-text">Item&#160;in&#160;Arena&#160;de&#160;I&#160;feodo&#160;I&#160;caseum</span><span class="superscript"><span class="hover-text">h)</span></span><span class="hover-text">&#160;</span></span><span class="hover-text">
+</span><br /><span class="tei_lb label">57&#160;</span><span class="tei_handShift">(unbekannter Schreiber1 :) </span><span class="hover-text">Leupoldus&#160;II&#160;caseos.&#160;
+</span><br /><span class="tei_lb label">58&#160;</span><span class="hover-text">Hertlinus&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">59&#160;</span><span class="hover-text">Hainricus&#160;in&#160;arena&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">60&#160;</span><span class="hover-text">Gesel&#160;I&#160;caseum
+</span><br /><span class="tei_lb label">61&#160;</span><span class="hover-text">Laubschober&#160;I&#160;caseum.
+
+</span><br /><span class="tei_lb label">62&#160;</span><span class="hover-text">De&#160;Chotlacho
+
+</span><br /><span class="tei_lb label">63&#160;</span><span class="hover-text">Stephanus&#160;IIII&#160;caseos.
+</span><br /><span class="tei_lb label">64&#160;</span><span class="hover-text">Relicta&#160;Sifridi</span><span class="superscript"><span class="hover-text">i)</span></span><span class="hover-text">&#160;&#160;IIII&#160;caseos.
+</span><br /><span class="tei_lb label">65&#160;</span><span class="hover-text">Hilpertus&#160;cum&#160;coniuge&#160;IIII&#160;caseos.
+
+</span><br /><span class="tei_lb label">66&#160;</span><span class="hover-text">De&#160;Preuna
+
+</span><br /><span class="tei_lb label">67&#160;</span><span class="hover-text">De&#160;Puech&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">68&#160;</span><span class="hover-text">De&#160;Payrpach&#160;II&#160;caseos.
+</span><br /><span class="tei_lb label">69&#160;</span><span class="hover-text">De&#160;Tupeln&#160;I&#160;caseum.
+
+</span><br /><span class="tei_lb label">70&#160;</span><span class="hover-text">De&#160;Smidendorf
+
+</span><br /><span class="tei_lb label">71&#160;</span><span class="hover-text">Hermannus&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">72&#160;</span><span class="hover-text">Ulricus&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">73&#160;</span><span class="hover-text">Nicolaus&#160;frater&#160;ipsius&#160;II&#160;caseos
+</span><br /><span class="tei_lb label">74&#160;</span><span class="hover-text">Albertus&#160;Molendinator&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">75&#160;</span><span class="hover-text">Jacobus&#160;Winchler&#160;I&#160;caseum.
+</span><br /><span class="tei_lb label">76&#160;</span><span class="hover-text">Hainricus&#160;List&#160;III&#160;caseos.
+&#160;</span><span class="tooltip">(Absatz Ende)</span></p><span xmlns:tei="http://www.tei-c.org/ns/1.0" class="hover-text">
+</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span xmlns:tei="http://www.tei-c.org/ns/1.0" class="hr">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><ul xmlns:tei="http://www.tei-c.org/ns/1.0">
+<div><span>a)</span>&#160;Nachtrag am oberen linken Rand von späterer Hand</div>
+<div><span>b)</span>&#160;hier ist unklar, ob der Strich über dem o ein verunglückter Kürzungsstrick ist. Sonst müsste es "Vroleich" lauten</div>
+<div><span>c)</span>&#160;vermutlich heute Schottwien (NÖ, PB Neunkirchen, Österreich); direkt daneben liegt das genannte Au;</div>
+<div><span>d)</span>&#160;evtl. für pomerio = lat. Obstgarten</div>
+<div><span>e)</span>&#160;vermutlich<span class="tei_quote">j</span><span class="tooltip">(Textzitat)</span>, allerding mit schwungvollem Anstrich ausgeführt</div>
+<div><span>f)</span>&#160; vermutlich<span class="tei_quote">Steger</span><span class="tooltip">(Textzitat)</span>, die Kürzung für <span class="tei_quote">-er</span><span class="tooltip">(Textzitat)</span> wurde vom Schreiber ungewöhnlich weit nach unten gezogen</div>
+<div><span>g)</span>&#160;evtl. keine <span class="tei_quote">8</span><span class="tooltip">(Textzitat)</span>, sondern von der gegenüberliegenden Seite abgefärbte Tinte (vom et-Zeichen?)</div>
+<div><span>h)</span>&#160;andere Hand bzw. später angefügte Randnotiz</div>
+<div><span>i)</span>&#160;im Namen <span class="tei_quote">Sifridi</span><span class="tooltip">(Textzitat)</span> wurde vor dem Buchstaben <span class="tei_quote">f</span><span class="tooltip">(Textzitat)</span> vermutlich eine Ausbesserung vorgenommen </div>
+ </ul>
+
+	
+</div></div><div class="resizable"></div></div></div></div></div><script type="text/javascript"><!--
     dsk.installView();
   --></script></body></html>

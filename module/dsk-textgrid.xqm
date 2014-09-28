@@ -26,7 +26,9 @@ declare function dsk-textgrid:file-name($tei as element(tei:TEI)) as xs:string {
 
 
 declare function dsk-textgrid:image-name($tei as element(tei:TEI)) as xs:string {
-  ($conf:data//file:file[starts-with(@name, dsk-textgrid:file-name($tei)) and ends-with(@name, 'jpg')]/@name/string())[1]
+  let $name := ($conf:data//file:file[starts-with(@name, dsk-textgrid:file-name($tei)) and ends-with(@name, 'jpg')]/@name/string())[1]
+  return
+  if (empty($name)) then ' ' else $name
 };
 
 

@@ -211,10 +211,18 @@ padding: 10px;
 border: 1px solid #0099FF;
 }
 
+#view-pages {
+position: absolute;
+display: block;
+right: 0px;
+top: -17px;
+height: 15px;
+}
+
 #options {
 position: absolute;
 left: 52%;
-bottom: 4px;
+bottom: 14px;
 }
 
 #options * {
@@ -257,12 +265,16 @@ height: 100%;
 position: relative;
 width: 100%;
 border: 1px solid #0099FF;
-height: 33%;
 background-color: white;
 }
 
 #window-comment, #window-transcription1 {
 margin-bottom: .4%;
+height: 37%;
+}
+
+#window-transcription2 {
+height: 25%;
 }
 
 #view-main div.h1 {
@@ -370,18 +382,12 @@ font-family: "Andale Mono";
 font-size: 1.5em;
 }
 
-#view-main .tei_foreign {
-letter-spacing: .3em;
+#view-main .tei_foreign, #view-main .tei_foreign * {
 font-style: italic;
 }
 
-#view-main .tei_del {
+#view-main .tei_del, #view-main .tei_del *{
 text-decoration: line-through;
-}
-
-#view-main .tei_add {
-color: #04C51E;
-text-decoration: underline;
 }
 
 #view-main .handS2 {
@@ -389,6 +395,7 @@ border-bottom: 1px dashed blue;
 }
 
 #view-main .tei_handShift {
+display: none;
 color: rgb(150,150,150);
 }
 
@@ -405,4 +412,23 @@ vertical-align: top;
 
 #view-main span.error {
 color: red;
+}
+
+#view-main span.superscript {
+vertical-align: super;
+font-size: smaller;
+line-height: normal;
+}
+
+#view-main span.tei_quote, #view-main span.tei_quote * {
+text-decoration: underline;
+}
+
+#view-main span.tei_add_above, #view-main span.tei_add_above * {
+vertical-align: super;
+}
+
+#view-main .tei_add {
+color: #04C51E;
+text-decoration: underline;
 }

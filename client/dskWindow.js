@@ -15,7 +15,7 @@ goog.require('goog.style');
 
 
 
-dsk.Window = function(element, position) {
+dsk.Window = function(element, position, height) {
 
   this.element_ = element;
 
@@ -25,7 +25,7 @@ dsk.Window = function(element, position) {
 
   this.fontSize_;
 
-  this.init_(position);
+  this.init_(position, height);
 };
 
 
@@ -85,22 +85,25 @@ dsk.Window.prototype.setOptimalHeight = function() {
 
 
 
-dsk.Window.prototype.initStyle_ = function(pos) {
+dsk.Window.prototype.initStyle_ = function(pos, height) {
   var self = this;
+  height = height || 0;
   var position = goog.style.getClientPosition(self.element_);
-  position.y = position.y + (goog.style.getSize(self.element_).height + 10) * pos;
+  position.y = position.y + (height + 10) * pos;
   goog.style.setStyle(self.element_, 'position', 'absolute');
+  goog.style.setStyle(self.element_, 'z-index', '10');
   goog.style.setPageOffset(self.element_, position);
   this.focus(false);
   this.zoom_ = 1;
-  this.fontSize_ = goog.style.getFontSize(self.element_);
+  var span = goog.dom.getElementsByTagNameAndClass('span', undefined, self.element_)[0];
+  span ? this.fontSize_ = goog.style.getFontSize(span) : this.fontSize_ = 11;
 };
 
 
 
 dsk.Window.prototype.registerResizable = function() {
   var self = this;
-  var resizable = goog.dom.getLastElementChild(self.element_);
+  var resizable = goog.dom.getLastElementChild(this.element_);
   var d = new goog.fx.Dragger(resizable);
   goog.events.listen(resizable, goog.events.EventType.MOUSEOVER, function(e) {
     goog.style.setStyle(e.target, 'cursor', 'se-resize');
@@ -183,8 +186,8 @@ dsk.Window.prototype.registerToolbar_ = function() {
 
 
 
-dsk.Window.prototype.init_ = function(position) {
-  this.initStyle_(position);
+dsk.Window.prototype.init_ = function(position, height) {
+  this.initStyle_(position, height);
   this.registerResizable();
   this.registerDrag_();
   this.registerToolbar_();

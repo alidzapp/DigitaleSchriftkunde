@@ -18,7 +18,7 @@ goog.require('xrx.drawing.Drawing');
 goog.require('xrx.drawing.State');
 goog.require('xrx.drawing.tool.Magnifier');
 goog.require('xrx.engine.Engine');
-goog.require('xrx.shape.Rect');
+goog.require('xrx.shape.Polygon');
 
 
 
@@ -47,35 +47,54 @@ goog.inherits(dsk.ImageWindow, dsk.Window);
 
 
 
+dsk.ImageWindow.prototype.getCanvasHeight = function() {
+  return this.drawing_.getLayerBackground().getImage().getHeight();
+};
+
+
+
+dsk.ImageWindow.prototype.getCanvasWidth = function() {
+  return this.drawing_.getLayerBackground().getImage().getWidth();
+};
+
+
+
 dsk.ImageWindow.prototype.getShapeFromData = function(id) {
-  var rect;
+  var polygon;
   var x, y, w, h;
-  var coords = new Array(4);
-  var tokens = this.data_[id].split(' ');
+  var coords = [];
+  var points = this.data_[id].split(' ');
+  var point;
+  var p;
 
-  x = (parseFloat(tokens[0]));
-  y = (parseFloat(tokens[1]));
-  w = (parseFloat(tokens[2]));
-  h = (parseFloat(tokens[3]));
+  for(var i = 0, len = points.length; i < len; i++) {
+    p = new Array(2);
+    point = points[i].split(',');
+    p[0] = parseFloat(point[0]);
+    p[1] = parseFloat(point[1]);
+    coords.push(p);
+  }
 
-  coords[0] = [x, y];
-  coords[1] = [x + w, y];
-  coords[2] = [x + w, y + h];
-  coords[3] = [x, y + h];
+  polygon = new xrx.shape.Polygon(this.drawing_);
+  polygon.id = id;
+  polygon.setCoords(coords);
+  polygon.setStrokeWidth(0);
+  polygon.setStrokeColor('');
 
-  rect = new xrx.shape.Rect(this.drawing_);
-  rect.id = id;
-  rect.setCoords(coords);
-  rect.setStrokeWidth(0);
-  rect.setStrokeColor('#FF9900');
+  return polygon;
+};
 
-  return rect;
+
+
+dsk.ImageWindow.prototype.getDrawing = function() {
+  return this.drawing_;
 };
 
 
 
 dsk.ImageWindow.prototype.showAnnotation = function(shape) {
   if (shape) shape.setStrokeWidth(5);
+  if (shape) shape.setStrokeColor('#FF9900');
   this.drawing_.draw();
 };
 
@@ -104,20 +123,32 @@ dsk.ImageWindow.prototype.hideAnnotationById = function(id) {
 
 dsk.ImageWindow.prototype.initDrawing_ = function() {
   var self = this;
-  var imageInner = goog.dom.getFirstElementChild(this.element_);
+  var imageInner = goog.dom.getElement('window-image-inner');
   var content = goog.dom.getLastElementChild(imageInner);
-  var url = goog.dom.getFirstElementChild(content).src;
-  if (goog.userAgent.IE && !goog.userAgent.isVersionOrHigher(9)) {
-    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.engine.Engine.VML);
-  } else {
-    this.drawing_ = new xrx.drawing.Drawing(imageInner, xrx.engine.Engine.CANVAS);
-  }
-  goog.dom.removeNode(content);
+  var img = goog.dom.getFirstElementChild(content);
+  var url = img.src;
+  var pos = goog.style.getPosition(content);
+  goog.style.setPosition(content, pos.x, pos.y + 44);
+  goog.style.setStyle(content, 'overflow', 'hidden');
+  this.drawing_ = new xrx.drawing.Drawing(content);
+  goog.dom.removeNode(img);
   this.drawing_.setModeView();
   this.drawing_.setBackgroundImage(url, function() {
-    self.drawing_.getViewbox().setOptimalWidth();
+    self.view_.initLayout();
     self.drawing_.draw();
   });
+  if (xrx.engine.isOldIE()) {
+    var span = goog.dom.createElement('span');
+    goog.dom.setTextContent(span, 'Sie verwenden einen alten Internet Explorer. ' +
+        'Verschieben sie das Bild nur langsam und nur außerhalb der Bild-Annotationen.');
+    goog.style.setStyle(span, 'position', 'absolute');
+    goog.style.setStyle(span, 'color', 'red');
+    goog.style.setStyle(span, 'top', '0px');
+    goog.style.setStyle(span, 'left', '0px');
+    goog.style.setStyle(span, 'z-index', '999');
+    goog.style.setStyle(span, 'background-color', 'white');
+    goog.dom.insertChildAt(goog.dom.getDocument().body, span, 0);
+  }
 };
 
 
@@ -129,7 +160,6 @@ dsk.ImageWindow.prototype.initShapes_ = function() {
     self.shapes_[i] = self.getShapeFromData(i);
   });
   self.drawing_.getLayerShape().addShapes(goog.object.getValues(self.shapes_).slice(1));
-  //self.drawing_.draw();
   self.drawing_.getLayerShape().setLocked(false);
 };
 
@@ -140,7 +170,8 @@ dsk.ImageWindow.prototype.handleHover_ = function(e) {
   if (this.drawing_.getViewbox().state_ === xrx.drawing.State.DRAG) return;
   var self = this;
   var shape;
-  var eventPoint = [e.offsetX, e.offsetY];
+  var wPos = goog.style.getClientPosition(this.drawing_.getCanvas().getElement());
+  var eventPoint = [e.clientX - wPos.x, e.clientY - wPos.y];
   self.drawing_.getViewbox().getCTM().createInverse().transform(eventPoint, 0,
       self.mousePoint_, 0, 1);
   shape = self.drawing_.getShapeSelected(self.mousePoint_);
@@ -171,10 +202,10 @@ dsk.ImageWindow.prototype.registerHover_ = function() {
   var canvas = this.drawing_.getCanvas().getElement();
   goog.events.listen(canvas, goog.events.EventType.MOUSEMOVE, function(e) {
     self.handleHover_(e);
-  }, false, self);
+  }, true, self);
   goog.events.listen(canvas, goog.events.EventType.MOUSEOUT, function(e) {
     self.hideAnnotation(self.highlighted_);
-  }, false, self);
+  }, true, self);
 };
 
 
@@ -265,7 +296,7 @@ dsk.ImageWindow.prototype.registerToolbar_ = function() {
 
 dsk.ImageWindow.prototype.registerOut_ = function() {
   var self = this;
-  goog.events.listen(self.drawing_.getCanvas().getElement(), goog.events.EventType.MOUSEOUT, function(e) {
+  goog.events.listen(self.element_, goog.events.EventType.MOUSEOUT, function(e) {
     self.handleOut_(e);
   }, false, self);
 };

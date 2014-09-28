@@ -8,7 +8,7 @@ module namespace conf="http://semtonotes.github.io/SemToNotes/conf";
 
 (: db :)
 declare variable $conf:pswd := 'd5xp3ST4c';
-declare variable $conf:db := collection('xmldb:exist://db/Export');
+declare variable $conf:db := collection('xmldb:exist://db/TextGridExport');
 
 
 
@@ -20,10 +20,10 @@ declare variable $conf:noscript := request:get-parameter('noscript', 'false');
 
 (: data :)
 declare variable $conf:data := system:as-user('admin', $conf:pswd,
-    file:directory-list('C:\Users\Jochen\Documents\GitHub\eXist\webapp\DigitaleSchriftkunde\img\', '*.*')
+    file:directory-list('C:\wamp\www\GitHub\eXist\webapp\DigitaleSchriftkunde\img\', '*.*')
 );
 declare variable $conf:textgrid-tgl-file-names := system:as-user('admin', $conf:pswd,
-    file:directory-list('C:\Users\Jochen\Documents\GitHub\eXist\webapp\TextGridExport\', '*.*')
+    file:directory-list('C:\wamp\www\GitHub\eXist\webapp\TextGridExport\', '*.*')
 );
 
 
@@ -34,9 +34,9 @@ declare function conf:html-head() {
   <link rel="stylesheet" type="text/css" href="./style/bayhsta.css"/>
   <link rel="stylesheet" type="text/css" href="./style/dsk.css"/>
   <script src="./lib/raphael/raphael.js"></script>
-  <script src="../../../HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script>
-  <script src="./client/deps.js"></script>
-  <!--script src="./lib/DigitaleSchriftkunde.js"></script-->
+  <!--script src="../../../../GitHub/HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script>
+  <script src="./client/deps.js"></script-->
+  <script src="./lib/DigitaleSchriftkunde.js"></script>
   <script type="text/javascript">
     goog.require('dsk');
   </script>

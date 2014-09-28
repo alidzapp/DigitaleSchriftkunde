@@ -1,6 +1,139 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="./style/bayhsta.css" /><link rel="stylesheet" type="text/css" href="./style/dsk.css" /><script src="./lib/raphael/raphael.js"></script><script src="../../../HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script><script src="./client/deps.js"></script><!--script src="./lib/DigitaleSchriftkunde.js"></script--><script type="text/javascript">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="./style/bayhsta.css" /><link rel="stylesheet" type="text/css" href="./style/dsk.css" /><script src="./lib/raphael/raphael.js"></script><!--script src="../../../../GitHub/HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script>
+  <script src="./client/deps.js"></script--><script src="./lib/DigitaleSchriftkunde.js"></script><script type="text/javascript">
     goog.require('dsk');
-  </script></head><body><div id="view-header"><div id="title"><h1><a href="./liste.html">&lt;</a> Digitale Schriftkunde</h1><div id="options" class="noscript-invisible"><span>Bild </span><input type="checkbox" class="window-image" name="window-image" checked="checked" /><span> | </span><span>Kommentar </span><input type="checkbox" class="window-comment" name="window-comment" checked="checked" /><span> | </span><span>Entzifferung </span><input type="checkbox" class="window-transcription1" name="window-transcription1" checked="checked" /><span> | </span><span>Transkription </span><input type="checkbox" class="window-transcription2" name="window-transcription2" /><span> | </span><span>Text-Bild-Verknüpfung </span><input type="checkbox" name="text-image-linking" checked="checked" /></div></div></div><div id="view-main"><div id="window-image" data-json="./json/1668_bayhsta_kl-Habach_15-maerz21.json"><div id="window-image-inner"><div class="h1"><span>, , </span><div class="toolbar"><img src="./res/zoomIn.png" title="Bild vergrößern" /><img src="./res/zoomOut.png" title="Bild verkleinern" /><img src="./res/rotateLeft.png" title="Bild nach links drehen" /><img src="./res/rotateRight.png" title="Bild nach rechts drehen" /><img src="./res/magnifier.png" title="Lupe" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><img id="img" src="./img/1668_bayhsta_kl-Habach_15-maerz21.2200t.0.jpg" /></div></div><div class="resizable"></div></div><div id="view-text"><div id="view-text-inner"><div id="window-comment"><div class="h1"><span>Kommentar</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p"><b xmlns:tei="http://www.tei-c.org/ns/1.0">,&#160;&#160;</b><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" /><b xmlns:tei="http://www.tei-c.org/ns/1.0">&#160;()</b><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" /><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" /><div xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="label">Archivaliengattung: </span><span></span></div><div xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="label">Schwierigkeitsgrad: </span><span></span><div class="classCode"></div></div><div xmlns:tei="http://www.tei-c.org/ns/1.0" class="handNotes"><span class="label">Schreiberhände: </span><br /><ul><li> (S1)</li><li> (S2)</li><li> (S3)</li></ul></div><div xmlns:tei="http://www.tei-c.org/ns/1.0" class="editorialDecl"><span></span></div></div></div><div class="resizable"></div></div><div id="window-transcription1"><div class="h1"><span>Entzifferung</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p"><p xmlns:tei="http://www.tei-c.org/ns/1.0"><div class="tooltip">(Absatz Beginn)</div><div class="tooltip">(Absatz Ende)</div></p><span xmlns:tei="http://www.tei-c.org/ns/1.0" class="hr">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><ul xmlns:tei="http://www.tei-c.org/ns/1.0"><li></li></ul></div></div><div class="resizable"></div></div><div id="window-transcription2"><div class="h1"><span>Transkription</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p"><p xmlns:tei="http://www.tei-c.org/ns/1.0"><div class="tooltip">(Absatz Beginn)</div><div class="tooltip">(Absatz Ende)</div></p><span xmlns:tei="http://www.tei-c.org/ns/1.0" class="hr">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><ul xmlns:tei="http://www.tei-c.org/ns/1.0"><li></li></ul></div></div><div class="resizable"></div></div></div></div></div><script type="text/javascript"><!--
+  </script></head><body><div id="view-header"><div id="title"><h1><a href="./liste.html">&lt;</a> Digitale Schriftkunde</h1><div id="options" class="noscript-invisible"><span>Bild </span><input type="checkbox" class="window-image" name="iwindow-image" checked="checked" /><span> | </span><span>Kommentar </span><input type="checkbox" class="window-comment" name="iwindow-comment" checked="checked" /><span> | </span><span>Entzifferung </span><input type="checkbox" class="window-transcription1" name="iwindow-transcription1" checked="checked" /><span> | </span><span>Transkription </span><input type="checkbox" class="window-transcription2" name="iwindow-transcription2" /><span> | </span><span>Text-Bild-Verknüpfung </span><input type="checkbox" name="text-image-linking" checked="checked" /></div></div></div><div id="view-main"><div id="window-image" data-json="./json/1668_bayhsta_kl-Habach_15-maerz21.json"><div id="view-pages"></div><div id="window-image-inner"><div class="h1"><span>BayHStA, Klosterliteralien Habach 15</span><div class="toolbar"><img src="./res/zoomIn.png" title="Bild vergrößern" /><img src="./res/zoomOut.png" title="Bild verkleinern" /><img src="./res/rotateLeft.png" title="Bild nach links drehen" /><img src="./res/rotateRight.png" title="Bild nach rechts drehen" /><img src="./res/magnifier.png" title="Lupe" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><img id="img" src="./img/1668_bayhsta_kl-Habach_15-maerz21.2200t.0.jpg" /></div></div><div class="resizable"></div></div><div id="view-text"><div id="view-text-inner"><div id="window-comment"><div class="h1"><span>Kommentar</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p"><b xmlns:tei="http://www.tei-c.org/ns/1.0">BayHStA,&#160;Klosterliteralien Habach&#160;15</b><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" /><b xmlns:tei="http://www.tei-c.org/ns/1.0">Zuweisung der Pfarrei Hechendorf1668 März 21&#160;(Augsburg)</b><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" /><br xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns="" />
+	
+		
+			
+			
+				
+			
+			
+				
+					
+				
+				
+					
+				
+			
+		
+		
+			
+				
+					<div xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="label">Archivaliengattung: </span><span>Urkunde</span></div>
+				
+				<div xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="label">Schwierigkeitsgrad: </span><span>mittel</span><div class="classCode"></div></div>
+			
+			
+			<div xmlns:tei="http://www.tei-c.org/ns/1.0" class="handNotes"><span class="label">Schreiberhände: </span><br /><ul><li>Georg Murer (S1)</li><li>unbekannter Schreiber (S2)</li></ul></div>
+		
+		
+			
+				<div xmlns:tei="http://www.tei-c.org/ns/1.0" class="editorialDecl"><span> Der Priester Stephan Promberger bekommt durch Georg Murer, den Vikar des Bischofs von Augsburg, die Pfarrei Hechendorf als Wirkungsort zugewiesen.<br />
+Der Beginn der Urkunde bis einschließlich <span class="tei_quote">Christophori</span><span class="tooltip">(Textzitat)</span> in Zeile 2 steht in einer humanistischen Minuskel, wobei die Anfangsbuchstaben der meisten Wörter als Versalien in der Schriftart "Capitalis quadrata" gestaltet sind. Diese Verwendung dient repräsentativen Zwecken. Inmitten des Satzes geht der Schreiber in die humanistische Kursive über, in der der Rest des Textes verfasst ist. In Zeile 5 sticht optisch das Wort "Hehendorf" hervor, das in derselben Schriftart, aber offenbar von einer anderen Hand, nachträglich in eine bewusst freigelassene Lücke eingetragen wurde.<br />
+Die häufig auftretenden Trennzeichen am Zeilenende, die aus zwei parallelen Schrägstrichen bestehen, werden als moderne Trennstriche wiedergegeben.
+</span></div>
+			
+		
+		
+	
+	
+</div></div><div class="resizable"></div></div><div id="window-transcription1"><div class="h1"><span>Entzifferung</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p">
+	
+	
+
+<p xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="tooltip">(Absatz Beginn)</span><br /><span class="tei_lb label">1&#160;</span><span class="tei_add_left"></span><span id="a3_start"></span><span class="tei_handShift">(Georg Murer:) </span><span class="tei_foreign"><span class="hover-text">Vicarivs&#160;Reverend(issi)mi&#160;et&#160;Cels(issi)mi&#160;Principis,&#160;ac&#160;Domini&#160;Domini&#160;Io-</span></span><span class="tooltip">(Wechsel des Schriftsystems)</span><span id="a3_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">2&#160;</span><span class="tei_add_left"></span><span id="a4_start"></span><span class="tei_foreign"><span class="hover-text">annis&#160;Christophori</span></span><span class="tooltip">(Wechsel des Schriftsystems)</span><span class="hover-text">&#160;Epsicopi&#160;Augustani,&#160;Praepositi,&#160;ac&#160;Domini&#160;Eluacensis&#160;(et&#160;cetera)&#160;in&#160;Pontificatibus,&#160;et&#160;Spi-</span><span id="a4_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">3&#160;</span><span class="tei_add_left"></span><span id="a5_start"></span><span class="hover-text">ritualibus&#160;Generalis&#160;(et&#160;cetera)&#160;Dilecto&#160;Nobis&#160;in&#160;Christo&#160;Stephano&#160;Promberger&#160;Augustanae&#160;Dioecesis&#160;Presbytero</span><span id="a5_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">4&#160;</span><span class="tei_add_left"></span><span id="a6_start"></span><span class="hover-text">Salutem&#160;in&#160;Domino.&#160;Quia&#160;praeuio&#160;examine,&#160;et&#160;ex&#160;testificationibus&#160;Nobis&#160;de&#160;tua&#160;persona&#160;factis,&#160;te&#160;idoneum,&#160;et</span><span id="a6_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">5&#160;</span><span class="tei_add_left"></span><span id="a7_start"></span><span class="hover-text">sufficienter&#160;instructum&#160;esse&#160;cognouimus&#160;et&#160;approbauimus;&#160;Idcirco&#160;tibi,&#160;ut&#160;in&#160;parochia&#160;</span><span class="tei_handShift">(unbekannter Schreiber:) </span><span class="hover-text">Hehendorf</span><span class="superscript"><span class="hover-text">a)</span></span><span class="hover-text">.&#160;</span><span class="tei_handShift">(Georg Murer:) </span><span class="hover-text">prae-</span><span id="a7_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">6&#160;</span><span class="tei_add_left"></span><span id="a8_start"></span><span class="hover-text">dictae&#160;Augustanae&#160;Dioecesis.&#160;Capituli&#160;Ruralis&#160;Weilhemensis&#160;Sacramenta,&#160;et&#160;ea,&#160;quae&#160;curam&#160;animarum&#160;concernunt,</span><span id="a8_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">7&#160;</span><span class="tei_add_left"></span><span id="a9_start"></span><span class="hover-text">administrare,&#160;Diuina&#160;Officia&#160;celebrare,&#160;tuorumq`(ue)&#160;Ordinum&#160;plenariam&#160;executionem&#160;facere,&#160;liberè&#160;ac&#160;licitè&#160;poscis</span><span id="a9_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">8&#160;</span><span class="tei_add_left"></span><span id="a10_start"></span><span class="hover-text">et&#160;valeas,&#160;tenore&#160;praesentium&#160;licentiam&#160;damus,&#160;et&#160;concedimus;&#160;dumodo&#160;tamen&#160;aliud&#160;Canonicum&#160;non&#160;obstet&#160;im-</span><span id="a10_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">9&#160;</span><span class="tei_add_left"></span><span id="a11_start"></span><span class="hover-text">pedimentum:&#160;et&#160;prouiso,&#160;quòd&#160;honeste,&#160;ac&#160;Sacerdotaliter&#160;viuas,&#160;ac&#160;Statut[i]s</span><span class="superscript"><span class="hover-text">b)</span></span><span class="hover-text">&#160;synodalibus&#160;praedictae&#160;Dioecesis&#160;no-</span><span id="a11_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">10&#160;</span><span class="tei_add_left"></span><span id="a12_start"></span><span class="hover-text">strae&#160;te&#160;conformes.&#160;In&#160;cuius&#160;rei&#160;fidem&#160;praesentes&#160;literas&#160;Sigillo,&#160;Officij&#160;Vicariatus&#160;nostri&#160;consueto&#160;munitas&#160;de-</span><span id="a12_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">11&#160;</span><span class="tei_add_left"></span><span id="a13_start"></span><span class="hover-text">super&#160;fieri,&#160;et&#160;tibi&#160;concedi&#160;iussimus.&#160;Datas&#160;Augustae&#160;Vindelicorum,&#160;Anno&#160;millesimo&#160;sexcentesimo&#160;sexagesimo</span><span id="a13_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">12&#160;</span><span class="tei_add_left"></span><span id="a14_start"></span><span class="hover-text">octauo,&#160;Die&#160;verò&#160;vigesima&#160;prima&#160;Mensis&#160;Martij</span><span id="a14_end"></span><span class="hover-text">
+</span><span class="hover-text">
+</span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">13&#160;</span><span class="tei_add_left"></span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span id="a15_start"></span><span class="hover-text">Georgius&#160;Murer&#160;Sigillifer</span><span id="a15_end"></span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">14&#160;</span><span class="tei_add_left"></span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span class="hover-text">&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span id="a16_start"></span><span class="hover-text">(manu&#160;propria)</span><span class="superscript"><span class="hover-text">c)</span></span><span id="a16_end"></span><span class="hover-text">
+
+</span><span class="tooltip">(Absatz Ende)</span></p>
+
+
+<span xmlns:tei="http://www.tei-c.org/ns/1.0" class="hr">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><ul xmlns:tei="http://www.tei-c.org/ns/1.0"><div><span>a)</span>&#160;Ortsname wohl nachträglich von anderer Hand in eine bestehende Lücke eingefügt</div>
+<div><span>b)</span>&#160;Loch im Papier</div>
+<div><span>c)</span>&#160;stark stilisiert</div>
+</ul>
+
+
+
+
+
+	
+</div></div><div class="resizable"></div></div><div id="window-transcription2"><div class="h1"><span>Transkription</span><div xmlns="" class="toolbar"><img src="./res/zoomIn.png" title="Schrift vergrößern" /><img src="./res/zoomOut.png" title="Schrift verkleinern" /><img src="./res/delete.png" title="Fenster schließen" /></div></div><div class="content"><div class="p">
+	
+	
+
+<p xmlns:tei="http://www.tei-c.org/ns/1.0"><span class="tooltip">(Absatz Beginn)</span><br /><span class="tei_lb label">1&#160;</span><span class="tei_handShift">(Georg Murer:) </span><span class="tei_foreign"><span class="hover-text">Vicarius&#160;reverendissimi&#160;et&#160;celsissimi&#160;principis&#160;ac&#160;domini,&#160;domini&#160;Io-</span></span><span class="tooltip">(Wechsel des Schriftsystems)</span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">2&#160;</span><span class="tei_foreign"><span class="hover-text">annis&#160;Christophori</span></span><span class="tooltip">(Wechsel des Schriftsystems)</span><span class="hover-text">&#160;epsicopi&#160;Augustani,&#160;praepositi&#160;ac&#160;domini&#160;Elvacensis&#160;et&#160;cetera&#160;in&#160;pontificatibus&#160;et&#160;spi-
+
+</span><br /><span class="tei_lb label">3&#160;</span><span class="hover-text">ritualibus&#160;generalis&#160;et&#160;cetera&#160;dilecto&#160;nobis&#160;in&#160;Christo&#160;Stephano&#160;Promberger&#160;Augustanae&#160;dioecesis&#160;presbytero
+
+</span><br /><span class="tei_lb label">4&#160;</span><span class="hover-text">salutem&#160;in&#160;domino.&#160;Quia&#160;praevio&#160;examine&#160;et&#160;ex&#160;testificationibus&#160;nobis&#160;de&#160;tua&#160;persona&#160;factis,&#160;te&#160;idoneum&#160;et
+
+</span><br /><span class="tei_lb label">5&#160;</span><span class="hover-text">sufficienter&#160;instructum&#160;esse&#160;cognovimus&#160;et&#160;approbavimus.&#160;Idcirco&#160;tibi,&#160;ut&#160;in&#160;parochia&#160;</span><span class="tei_handShift">(unbekannter Schreiber:) </span><span class="hover-text">Hehendorf</span><span class="superscript"><span class="hover-text">a)</span></span><span class="hover-text">&#160;</span><span class="tei_handShift">(Georg Murer:) </span><span class="hover-text">prae-
+
+</span><br /><span class="tei_lb label">6&#160;</span><span class="hover-text">dictae&#160;Augustanae&#160;dioecesis&#160;capituli&#160;ruralis&#160;Weilhemensis&#160;sacramenta&#160;et&#160;ea,&#160;quae&#160;curam&#160;animarum&#160;concernunt,
+
+</span><br /><span class="tei_lb label">7&#160;</span><span class="hover-text">administrare&#160;diuina&#160;officia&#160;celebrare&#160;tuorumque&#160;ordinum&#160;plenariam&#160;executionem&#160;facere&#160;libere&#160;ac&#160;licite&#160;poscis
+
+</span><br /><span class="tei_lb label">8&#160;</span><span class="hover-text">et&#160;valeas&#160;tenore&#160;praesentium&#160;licentiam&#160;damus&#160;et&#160;concedimus.&#160;Dumodo&#160;tamen&#160;aliud&#160;canonicum&#160;non&#160;obstet&#160;im-
+
+</span><br /><span class="tei_lb label">9&#160;</span><span class="hover-text">pedimentum&#160;et&#160;proviso,&#160;quod&#160;honeste&#160;ac&#160;sacerdotaliter&#160;vivas&#160;ac&#160;statutis</span><span class="superscript"><span class="hover-text">b)</span></span><span class="hover-text">&#160;synodalibus&#160;praedictae&#160;dioecesis&#160;no-
+
+</span><br /><span class="tei_lb label">10&#160;</span><span class="hover-text">strae&#160;te&#160;conformes.&#160;In&#160;cuius&#160;rei&#160;fidem&#160;praesentes&#160;literas&#160;sigillo&#160;officii&#160;vicariatus&#160;nostri&#160;consueto&#160;munitas&#160;de-
+
+</span><br /><span class="tei_lb label">11&#160;</span><span class="hover-text">super&#160;fieri&#160;et&#160;tibi&#160;concedi&#160;iussimus.&#160;Datas&#160;Augustae&#160;Vindelicorum,&#160;anno&#160;millesimosexcentesimosexagesimo-
+
+</span><br /><span class="tei_lb label">12&#160;</span><span class="hover-text">octavo,&#160;die&#160;vero&#160;vigesimaprima&#160;mensis&#160;martii.
+</span><span class="hover-text">
+</span><span class="hover-text">
+
+</span><br /><span class="tei_lb label">13&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span class="hover-text">Georgius&#160;Murer&#160;sigillifer
+
+</span><br /><span class="tei_lb label">14&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span class="hover-text">manu&#160;propria</span><span class="superscript"><span class="hover-text">c)</span></span><span class="hover-text">
+
+</span><span class="tooltip">(Absatz Ende)</span></p><span xmlns:tei="http://www.tei-c.org/ns/1.0" class="hover-text">
+</span>
+
+
+
+
+
+
+<span xmlns:tei="http://www.tei-c.org/ns/1.0" class="hr">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><ul xmlns:tei="http://www.tei-c.org/ns/1.0"><div><span>a)</span>&#160;Ortsname wohl nachträglich von anderer Hand in eine bestehende Lücke eingefügt</div>
+<div><span>b)</span>&#160;Loch im Papier</div>
+<div><span>c)</span>&#160;stark stilisiert</div>
+</ul>
+
+	
+</div></div><div class="resizable"></div></div></div></div></div><script type="text/javascript"><!--
     dsk.installView();
   --></script></body></html>

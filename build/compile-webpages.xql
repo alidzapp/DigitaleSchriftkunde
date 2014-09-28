@@ -29,7 +29,7 @@ declare option exist:serialize "method=xml media-type=application/xml indent=yes
 
 
 
-declare variable $base := 'C:\Users\Jochen\Documents\GitHub\eXist\webapp\DigitaleSchriftkunde\';
+declare variable $base := 'C:\wamp\www\GitHub\eXist\webapp\DigitaleSchriftkunde\';
 
 
 

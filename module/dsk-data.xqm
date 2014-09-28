@@ -20,6 +20,7 @@ import module namespace dsk-filter="http://semtonotes.github.io/SemToNotes/dsk-f
 
 
 declare variable $dsk-data:teis := $conf:db/tei:TEI;
+declare variable $dsk-data:teis-firstpage := $dsk-data:teis[not(@corresp)];
 declare variable $dsk-data:items := dsk-data:items();
 
 
@@ -27,7 +28,7 @@ declare variable $dsk-data:items := dsk-data:items();
 declare function dsk-data:items() {
   <items>
   {
-    for $item at $i in $dsk-data:teis
+    for $item at $i in $dsk-data:teis-firstpage
     let $id := concat('_', $i)
     return
     element { $id } {
@@ -55,7 +56,7 @@ declare function dsk-data:items() {
 
 
 declare function dsk-data:signature($tei as element(tei:TEI)) {
-  $tei//tei:institution/text() || ', ' || $tei//tei:collection/text() || ', ' ||
+  $tei//tei:institution/text() || ', ' || $tei//tei:collection/text() || ' ' ||
       $tei//tei:idno/text()
 };
 

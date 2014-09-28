@@ -102,11 +102,20 @@ declare function dsk:render() {
         <div id="index-wordcloud">{ dsk:word-cloud() }</div>
         <div id="index-image">
           <div id="index-slider">
-            <a href="./1856_BayHStA_MInn_41166_01.html">
-              <img src="./slider/1856_BayHStA_MInn_41166_01.22044.0.jpg"/>
+            <a href="./1496_BayHStA_KU_Frauenchiemsee_88_03.html.html#_a__b__c__d__e_">
+              <img src="./slider/1496_BayHStA_KU_Frauenchiemsee_88.jpg"/>
             </a>
-            <a href="./1279_Bayhsta_Kl-Benediktbeuern-32-6-7.html">
-              <img src="./slider/1279_Bayhsta_Kl-Benediktbeuern-32-6-7.2208j.0.jpg"/>
+            <a href="./18_Jh_BayHStA_KurbayernAeA_2160_Attenkofer_II.html#_a__b__c__d__e_" style="display:none">
+              <img src="./slider/1529_BayHStA_Kurbayern-Aeußeres-Archiv_2160.jpg"/>
+            </a>
+            <a href="./1705_BayHStA_KL-Benediktbeuren_107-1-3_1.html#_a__b__c__d__e_" style="display:none">
+              <img src="./slider/1705_BayHStA_KL-Benediktbeuren_107-1-3.jpg"/>
+            </a>
+            <a href="./1799_bayHStA_KL-Abensberg_8_fol_3r.html" style="display:none">
+              <img src="./slider/1799_bayHStA_KL-Abensberg_8_fol_3r.jpg"/>
+            </a>
+            <a href="./1803_BayHStA_Kurbayern-Buecherzensurkollegium_770.html" style="display:none">
+              <img src="./slider/1803_BayHStA_Kurbayern-Buecherzensurkollegium_770.jpg"/>
             </a>
           </div>
           <img id="index-arrowLeft" src="./res/arrowLeft.png" class="noscript"/>

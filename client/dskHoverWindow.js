@@ -6,6 +6,7 @@ goog.provide('dsk.HoverWindow');
 
 
 
+goog.require('goog.array');
 goog.require('goog.dom.DomHelper');
 goog.require('goog.dom.NodeIterator');
 goog.require('goog.events');
@@ -17,9 +18,9 @@ goog.require('dsk.Window');
 
 
 
-dsk.HoverWindow = function(element, position, view) {
+dsk.HoverWindow = function(element, position, view, height) {
 
-  goog.base(this, element, position);
+  goog.base(this, element, position, height);
 
   this.view_ = view;
 
@@ -30,6 +31,7 @@ dsk.HoverWindow = function(element, position, view) {
   this.p_;
 
   this.register_();
+  this.initTei_();
 };
 goog.inherits(dsk.HoverWindow, dsk.Window);
 
@@ -110,6 +112,56 @@ dsk.HoverWindow.prototype.handleOut_ = function(e) {
 
 
 
+dsk.HoverWindow.prototype.initTeiLeftAdditions_ = function() {
+  var max = 100;
+  var leftAdditions = goog.dom.getElementsByTagNameAndClass('span', 'tei_add_left', self.element_);
+  var hasAdditions = false;
+  var longestWidth = 0;
+  var longestAddition;
+  var size = 0;
+  goog.array.forEach(leftAdditions, function(e, i, a) {
+    size = goog.style.getSize(leftAdditions[i]);
+    if (goog.dom.getTextContent(leftAdditions[i]) !== '') hasAdditions = true;
+    if (size.width > longestWidth) {
+      longestWidth = size.width;
+      longestAddition = e;
+    }
+  });
+  longestWidth += 5;
+  goog.array.forEach(leftAdditions, function(e, i, a) {
+    goog.style.setStyle(e, 'display', 'inline-block');
+    goog.style.setStyle(e, 'width', longestWidth + 'px');
+  });
+};
+
+
+
+dsk.HoverWindow.prototype.initTeiRightAdditions_ = function() {
+  var rightAdditions = goog.dom.getElementsByTagNameAndClass('span', 'tei_add_right', self.element_);
+  var hasAdditions = false;
+  rightAdditions.length > 0 ? hasAdditions = true : hasAdditions = false;
+  var mostRight = 0;
+  var position;
+  goog.array.forEach(rightAdditions, function(e, i, a) {
+    position = goog.style.getClientPosition(e);
+    if (position.x > mostRight) mostRight = position.x;
+  });
+  goog.array.forEach(rightAdditions, function(e, i, a) {
+    position = goog.style.getClientPosition(e);
+    goog.style.setStyle(e, 'position', 'absolute');
+    goog.style.setPageOffset(e, mostRight, position.y);
+  });
+};
+
+
+
+dsk.HoverWindow.prototype.initTei_ = function() {
+  this.initTeiLeftAdditions_();
+  this.initTeiRightAdditions_();
+};
+
+
+
 dsk.HoverWindow.prototype.register_ = function() {
   var self = this;
   self.p_ = goog.dom.getElementsByTagNameAndClass('div', 'p', self.element_)[0];
@@ -119,6 +171,6 @@ dsk.HoverWindow.prototype.register_ = function() {
   goog.events.listen(self.p_, goog.events.EventType.MOUSEOUT, function(e) {
     self.handleOut_(e);
   }, false, self);
-  this.nodes_ = new goog.dom.NodeIterator(this.p_, false, false);
-  this.nodes_ = goog.iter.toArray(this.nodes_);
+  this.nodes_ = new goog.dom.NodeIterator(self.p_, false, false);
+  this.nodes_ = goog.iter.toArray(self.nodes_);
 };

@@ -22,23 +22,23 @@ declare variable $dsk-filter:LANGUAGE := 'e';
 declare variable $dsk-filter:categories := ($dsk-filter:DIFFICULTY, $dsk-filter:CATEGORY,
     $dsk-filter:CENTURY, $dsk-filter:ARCHIVE, $dsk-filter:LANGUAGE);
 
-declare variable $dsk-filter:difficulty-elements := $dsk-data:teis//tei:classCode;
+declare variable $dsk-filter:difficulty-elements := $dsk-data:teis-firstpage//tei:classCode;
 declare variable $dsk-filter:difficulty-object := dsk-filter:make-mapping($dsk-filter:difficulty-elements,
     $dsk-filter:DIFFICULTY);
 
-declare variable $dsk-filter:category-elements := $dsk-data:teis//tei:term[1];
+declare variable $dsk-filter:category-elements := $dsk-data:teis-firstpage//tei:term[1];
 declare variable $dsk-filter:category-object := dsk-filter:make-mapping($dsk-filter:category-elements,
     $dsk-filter:CATEGORY);
 
-declare variable $dsk-filter:century-elements := $dsk-data:teis//tei:date;
+declare variable $dsk-filter:century-elements := $dsk-data:teis-firstpage//tei:date;
 declare variable $dsk-filter:century-object := dsk-filter:make-mapping-centuries($dsk-filter:century-elements,
     $dsk-filter:CENTURY);
 
-declare variable $dsk-filter:archive-elements := $dsk-data:teis//tei:institution;
+declare variable $dsk-filter:archive-elements := $dsk-data:teis-firstpage//tei:institution;
 declare variable $dsk-filter:archive-object := dsk-filter:make-mapping($dsk-filter:archive-elements,
     $dsk-filter:ARCHIVE);
 
-declare variable $dsk-filter:language-elements := $dsk-data:teis//tei:editor;
+declare variable $dsk-filter:language-elements := $dsk-data:teis-firstpage//tei:editor;
 declare variable $dsk-filter:language-object := dsk-filter:make-mapping-language($dsk-filter:language-elements,
     $dsk-filter:LANGUAGE);
 

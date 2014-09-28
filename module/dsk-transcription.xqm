@@ -10,6 +10,11 @@ declare namespace tei="http://www.tei-c.org/ns/1.0";
 
 
 
+import module namespace dsk-data="http://semtonotes.github.io/SemToNotes/dsk-data"
+    at "./dsk-data.xqm";
+
+
+
 declare function dsk-t:common() {
 
   <xsl:template match="tei:lb">
@@ -131,6 +136,13 @@ let $xslt :=
       <span><xsl:apply-templates/></span>
     </div>
   </xsl:template>
+  
+  <xsl:template match="tei:quote">
+    <span class="tei_quote" xmlns="http://www.w3.org/1999/xhtml">
+      <xsl:apply-templates/>
+    </span>
+    <span class="tooltip" xmlns="http://www.w3.org/1999/xhtml">(Textzitat)</span>
+  </xsl:template>
 
   { dsk-t:common() }
 
@@ -138,7 +150,18 @@ let $xslt :=
 
 return
 
-transform:transform($tei, $xslt, ())
+if ($tei/@corresp) then
+  let $header := $dsk-data:teis[@n = $tei/@corresp]//tei:teiHeader
+  let $corresp :=
+  <tei:TEI>
+    { $header }
+    { $tei//tei:text }
+    { $tei//tei:back }
+  </tei:TEI>
+  return
+  transform:transform($corresp, $xslt, ())
+else 
+  transform:transform($tei, $xslt, ())
 
 };
 
@@ -171,9 +194,9 @@ let $xslt :=
   
   <xsl:template match="tei:p">
     <p xmlns="http://www.w3.org/1999/xhtml">
-      <div class="tooltip">(Absatz Beginn)</div>
+      <span class="tooltip">(Absatz Beginn)</span>
       <xsl:apply-templates/>
-      <div class="tooltip">(Absatz Ende)</div>
+      <span class="tooltip">(Absatz Ende)</span>
     </p>
   </xsl:template>
   
@@ -204,6 +227,15 @@ let $xslt :=
         <xsl:value-of select="count(./preceding::tei:lb[@type='orig']) + 1"/>
         <xsl:text>&#160;</xsl:text>
       </span>
+      <xsl:choose>
+        <xsl:when test="((./following-sibling::*)[1])[@place='left']">
+          <xsl:apply-templates/>
+        </xsl:when>
+        <xsl:otherwise>
+          <span class="tei_add_left" xmlns="http://www.w3.org/1999/xhtml"></span>
+          <xsl:apply-templates/>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:if>
   </xsl:template>
   
@@ -249,7 +281,7 @@ let $xslt :=
     <xsl:param name="right" select="substring-after(., '%')"/>
     <xsl:if test="(./preceding::tei:lb[@type!='empty'])[last()]/@type = '{ $type }'">
       <xsl:choose>
-        <xsl:when test="$left &gt;= 'a'">
+        <xsl:when test="matches($left, '[a-z]')">
           <svg width=".7em" height="1.2em" xmlns="http://www.w3.org/2000/svg">
             <g>
               <text text-anchor="middle" y="1.2em" x="50%">
@@ -261,7 +293,7 @@ let $xslt :=
             </g>
           </svg>
         </xsl:when>
-        <xsl:when test="$left &lt;= 'Z'">
+        <xsl:otherwise>
           <svg width=".9em" height="1.4em" xmlns="http://www.w3.org/2000/svg">
             <g>
               <text text-anchor="middle" y="1.4em" x="50%">
@@ -272,7 +304,7 @@ let $xslt :=
               </text>
             </g>
           </svg>
-        </xsl:when>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:if>
   </xsl:template>
@@ -316,18 +348,25 @@ let $xslt :=
   
   <xsl:template match="tei:add">
     <xsl:if test="(./preceding::tei:lb[@type!='empty'])[last()]/@type = '{ $type }'">
-      <span class="tei_add" xmlns="http://www.w3.org/1999/xhtml">
-        <xsl:apply-templates/>
-      </span>
       <xsl:choose>
         <xsl:when test="./@place = 'above'">
-          <span class="tooltip tei_add" xmlns="http://www.w3.org/1999/xhtml">(Über der Zeile nachgetragener Text)</span>
+          <span class="tei_add_above" xmlns="http://www.w3.org/1999/xhtml">
+            <xsl:apply-templates/>
+          </span>
+          <!--span class="tooltip tei_add" xmlns="http://www.w3.org/1999/xhtml">(Über der Zeile nachgetragener Text)</span-->
         </xsl:when>
         <xsl:when test="./@place = 'left'">
-          <span class="tooltip tei_add" xmlns="http://www.w3.org/1999/xhtml">(Links nachgetragener Text)</span>
+          <span class="tei_add_left" xmlns="http://www.w3.org/1999/xhtml">
+            <xsl:apply-templates/>
+          </span>
+          <!--span class="tei_add" xmlns="http://www.w3.org/1999/xhtml">(Links nachgetragener Text)</span-->
         </xsl:when>
         <xsl:when test="./@place = 'right'">
-          <span class="tooltip tei_add" xmlns="http://www.w3.org/1999/xhtml">(Rechts nachgetragener Text)</span>
+          <span class="tei_add_right" xmlns="http://www.w3.org/1999/xhtml">
+            <span xmlns="http://www.w3.org/1999/xhtml">&#160;&#160;&#160;&#160;</span>
+            <xsl:apply-templates/>
+          </span>
+          <!--span class="tei_add" xmlns="http://www.w3.org/1999/xhtml">(Rechts nachgetragener Text)</span-->
         </xsl:when>
       </xsl:choose>
     </xsl:if>
@@ -347,9 +386,9 @@ let $xslt :=
   
   <xsl:template match="tei:hi[@rend='sup']">
     <xsl:if test="(./preceding::tei:lb[@type!='empty'])[last()]/@type = '{ $type }'">
-      <sup xmlns="http://www.w3.org/1999/xhtml">
+      <span class="superscript" xmlns="http://www.w3.org/1999/xhtml">
         <xsl:apply-templates/>
-      </sup>
+      </span>
     </xsl:if>
   </xsl:template>
   
@@ -381,26 +420,26 @@ let $xslt :=
     <xsl:param name="label" select="."/>
     <xsl:param name="type" select="(./preceding::tei:lb[@type!='empty'])[last()]/@type"/>
     <xsl:if test="(./preceding::tei:lb[@type!='empty'])[last()]/@type = '{ $type }'">
-      <sup xmlns="http://www.w3.org/1999/xhtml">
+      <span class="superscript" xmlns="http://www.w3.org/1999/xhtml">
         <xsl:choose>
           <xsl:when test="count(//tei:div[@type=$type]/tei:note[@n=$label]) != 1">
             <span class="error">
               <span>Fußnote '</span>
-              <xsl:value-of select="."/>
+              <xsl:apply-templates/>
               <span>' fehlt oder kommt mehrmals vor! </span>
             </span>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:value-of select="."/>
+            <xsl:apply-templates/>
           </xsl:otherwise>
         </xsl:choose>
-      </sup>
+      </span>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="tei:body//text()">
     <xsl:if test="(./preceding::tei:lb[@type!='empty'])[last()]/@type = '{ $type }'">
-      <span xmlns="http://www.w3.org/1999/xhtml" class="hover-text"><xsl:value-of select="."/></span>
+      <span xmlns="http://www.w3.org/1999/xhtml" class="hover-text"><xsl:value-of select="translate(., ' ', '&#160;')"/></span>
     </xsl:if>
   </xsl:template>
 
@@ -490,9 +529,9 @@ let $xslt :=
   </xsl:template>
   
   <xsl:template match="tei:quote">
-    <xsl:text>"</xsl:text>
-    <xsl:apply-templates/>
-    <xsl:text>"</xsl:text>
+    <span class="tei_quote" xmlns="http://www.w3.org/1999/xhtml">
+      <xsl:apply-templates/>
+    </span>
     <span class="tooltip" xmlns="http://www.w3.org/1999/xhtml">(Textzitat)</span>
   </xsl:template>
 
