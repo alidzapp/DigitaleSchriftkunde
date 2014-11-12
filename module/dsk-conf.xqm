@@ -33,8 +33,8 @@ declare function conf:html-head() {
   <meta charset="utf-8"/>
   <link rel="stylesheet" type="text/css" href="./style/bayhsta.css"/>
   <link rel="stylesheet" type="text/css" href="./style/dsk.css"/>
-  <script src="./lib/raphael/raphael.js"></script>
-  <!--script src="../../../../GitHub/HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script>
+  <!--script src="./lib/raphael/raphael.js"></script>
+  <script src="../../../../GitHub/HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script>
   <script src="./client/deps.js"></script-->
   <script src="./lib/DigitaleSchriftkunde.js"></script>
   <script type="text/javascript">
