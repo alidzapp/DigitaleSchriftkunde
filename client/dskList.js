@@ -54,7 +54,11 @@ dsk.List.prototype.registerEvents_ = function() {
   goog.events.listen(self.domFilter_, goog.events.EventType.CLICK, function(e) {
     switch (e.target.tagName.toLowerCase()) {
     case 'input':
-        self.filter_.handleSelected(e.target);
+        if (e.target.getAttribute('class') == 'select-all') {
+          self.filter_.handleSelectAll(e.target);
+        } else {
+          self.filter_.handleSelected(e.target);
+        }
       break;
     default:
       break;

@@ -123,10 +123,15 @@ line-height: 2em;
 margin-left: 10px;
 }
 
-#list-content span.h2 {
+#list-content span.h2, #list-content span.select-all {
 color: #3366CC;
 font-size: 1.1em;
 margin-left: 10px;
+}
+
+#list-content span.select-all * {
+color: #99B2E6;
+font-size: .9em;
 }
 
 #list-filter {
@@ -138,6 +143,11 @@ width: 300px;
 
 #list-filter input {
 visibility: hidden;
+}
+
+#list-filter input.select-all {
+visibility: visible;
+display: none;
 }
 
 #list-filter .light-grey {
@@ -179,6 +189,10 @@ padding: 0px;
 margin: 0px;
 }
 
+canvas {
+z-index: 300;
+}
+
 #view-main {
 position: relative;
 display: block;
@@ -186,16 +200,98 @@ width: 100%;
 height: 100%;
 }
 
-#view-main .resizable{
+.resize-n {
 position: absolute;
-right: -6px;
-bottom: -6px;
-width: 6px;
-height: 6px;
-background-color: #0099FF;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 7px;
+cursor: ns-resize;
+z-index: 900;
 }
 
-#view-main .toolbar{
+.resize-ne {
+position: absolute;
+top: 0px;
+right: 0px;
+width: 7px;
+height: 7px;
+cursor: nesw-resize;
+z-index: 910;
+}
+
+.resize-e {
+position: absolute;
+top: 0px;
+right: 0px;
+width: 7px;
+height: 100%;
+cursor: ew-resize;
+z-index: 900;
+}
+
+.resize-es {
+position: absolute;
+bottom: 0px;
+right: 0px;
+width: 7px;
+height: 7px;
+cursor: se-resize;
+z-index: 910;
+}
+
+.resize-s {
+position: absolute;
+bottom: 0px;
+left: 0px;
+width: 100%;
+height: 7px;
+cursor: ns-resize;
+z-index: 900;
+}
+
+.resize-sw {
+position: absolute;
+bottom: 0px;
+left: 0px;
+width: 7px;
+height: 7px;
+cursor: nesw-resize;
+z-index: 910;
+}
+
+.resize-w {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 7px;
+height: 100%;
+cursor: ew-resize;
+z-index: 900;
+}
+
+.resize-wn {
+position: absolute;
+top: 0px;
+left: 0px;
+width: 7px;
+height: 7px;
+cursor: se-resize;
+z-index: 910;
+}
+
+#view-main .resizable {
+position: absolute;
+right: 0px;
+bottom: 0px;
+width: 7px;
+height: 7px;
+background-color: #0099FF;
+cursor: se-resize;
+z-index: 910;
+}
+
+#view-main .toolbar {
 position: absolute;
 right: 4px;
 top: 4px;

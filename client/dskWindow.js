@@ -25,6 +25,8 @@ dsk.Window = function(element, position, height) {
 
   this.fontSize_;
 
+  this.content_ = goog.dom.getElementsByTagNameAndClass('div', 'content', this.element_)[0];;
+
   this.init_(position, height);
 };
 
@@ -103,16 +105,95 @@ dsk.Window.prototype.initStyle_ = function(pos, height) {
 
 dsk.Window.prototype.registerResizable = function() {
   var self = this;
+  var top;
+  var left;
+  var size;
+  var width;
+  var height;
+
+  var self = this;
   var resizable = goog.dom.getLastElementChild(this.element_);
   var d = new goog.fx.Dragger(resizable);
-  goog.events.listen(resizable, goog.events.EventType.MOUSEOVER, function(e) {
-    goog.style.setStyle(e.target, 'cursor', 'se-resize');
-  });
-  goog.events.listen(resizable, goog.events.EventType.MOUSEOUT, function(e) {
-    goog.style.setStyle(e.target, 'cursor', 'default');
+  d.defaultAction = function(x, y) {};
+  goog.events.listen(resizable, goog.events.EventType.MOUSEDOWN, function(e) {
+    size = goog.style.getContentBoxSize(self.element_);
+    width = goog.style.getContentBoxSize(self.element_).width;
+    height = goog.style.getContentBoxSize(self.element_).height;
   });
   goog.events.listen(d, goog.events.EventType.DRAG, function(e) {
-    goog.style.setSize(self.element_, d.deltaX, d.deltaY);
+    e.preventDefault();
+    e.stopPropagation();
+    size.width = d.deltaX + 20;
+    size.height = d.deltaY + 20;
+    goog.style.setContentBoxSize(self.element_, size);
+    if (self.drawing_) self.drawing_.handleResize();
+  });
+
+  // north
+  var resizeN = goog.dom.getElementsByTagNameAndClass('div', 'resize-n', this.element_)[0];
+  var dN = new goog.fx.Dragger(resizeN);
+  dN.defaultAction = function(x, y) {};
+  goog.events.listen(resizeN, goog.events.EventType.MOUSEDOWN, function(e) {
+    size = goog.style.getContentBoxSize(self.element_);
+    height = goog.style.getContentBoxSize(self.element_).height;
+  });
+  goog.events.listen(dN, goog.events.EventType.DRAG, function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    left = goog.style.getPageOffsetLeft(self.element_);
+    goog.style.setPageOffset(self.element_, left, dN.clientY - 20);
+    size.height = height - dN.deltaY - 20;
+    goog.style.setContentBoxSize(self.element_, size);
+    if (self.drawing_) self.drawing_.handleResize();
+  });
+
+  // east
+  var resizeE = goog.dom.getElementsByTagNameAndClass('div', 'resize-e', this.element_)[0];
+  var dE = new goog.fx.Dragger(resizeE);
+  dE.defaultAction = function(x, y) {};
+  goog.events.listen(resizeE, goog.events.EventType.MOUSEDOWN, function(e) {
+    size = goog.style.getContentBoxSize(self.element_);
+    width = goog.style.getContentBoxSize(self.element_).width;
+  });
+  goog.events.listen(dE, goog.events.EventType.DRAG, function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    size.width = dE.deltaX + 20;
+    goog.style.setContentBoxSize(self.element_, size);
+    if (self.drawing_) self.drawing_.handleResize();
+  });
+
+  // south
+  var resizeS = goog.dom.getElementsByTagNameAndClass('div', 'resize-s', this.element_)[0];
+  var dS = new goog.fx.Dragger(resizeS);
+  dS.defaultAction = function(x, y) {};
+  goog.events.listen(resizeS, goog.events.EventType.MOUSEDOWN, function(e) {
+    size = goog.style.getContentBoxSize(self.element_);
+    height = goog.style.getContentBoxSize(self.element_).height;
+  });
+  goog.events.listen(dS, goog.events.EventType.DRAG, function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    size.height = dS.deltaY + 20;
+    goog.style.setContentBoxSize(self.element_, size);
+    if (self.drawing_) self.drawing_.handleResize();
+  });
+
+  // west
+  var resizeW = goog.dom.getElementsByTagNameAndClass('div', 'resize-w', this.element_)[0];
+  var dW = new goog.fx.Dragger(resizeW);
+  dW.defaultAction = function(x, y) {};
+  goog.events.listen(resizeW, goog.events.EventType.MOUSEDOWN, function(e) {
+    size = goog.style.getContentBoxSize(self.element_);
+    width = goog.style.getContentBoxSize(self.element_).width;
+  });
+  goog.events.listen(dW, goog.events.EventType.DRAG, function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    top = goog.style.getPageOffsetTop(self.element_);
+    goog.style.setPageOffset(self.element_, dW.clientX - 20, top);
+    size.width = width - dW.deltaX;
+    goog.style.setContentBoxSize(self.element_, size);
     if (self.drawing_) self.drawing_.handleResize();
   });
 };

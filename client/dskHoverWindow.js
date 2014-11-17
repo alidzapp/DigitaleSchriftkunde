@@ -43,7 +43,7 @@ dsk.HoverWindow.prototype.isHighlightingSituation = function(element) {
 
 
 
-dsk.HoverWindow.prototype.highlight = function(span) {
+dsk.HoverWindow.prototype.highlight = function(span, active) {
   var self = this;
   var i = 0;
   var e;
@@ -77,6 +77,7 @@ dsk.HoverWindow.prototype.highlight = function(span) {
   goog.array.forEach(self.highlight_, function(e, i, a) {
     goog.style.setStyle(e, 'border-bottom', 'solid #FF9900 3px');
   });
+  if (active) goog.style.scrollIntoContainerView(span, this.content_, true);
 };
 
 
@@ -93,7 +94,7 @@ dsk.HoverWindow.prototype.unhighlight = function() {
 
 dsk.HoverWindow.prototype.handleOver_ = function(e) {
   if (!this.isHighlightingSituation(e.target)) return;
-  this.highlight(e.target);
+  this.highlight(e.target, false);
 };
 
 

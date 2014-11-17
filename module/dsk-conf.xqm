@@ -31,12 +31,15 @@ declare function conf:html-head() {
 
 <head xmlns="http://www.w3.org/1999/xhtml">
   <meta charset="utf-8"/>
+  <!--[if lt IE 9]>
+    <script src="./lib/html5shiv.min.js"></script>
+    <script src="./lib/respond.min.js"></script>
+  <![endif]-->
   <link rel="stylesheet" type="text/css" href="./style/bayhsta.css"/>
   <link rel="stylesheet" type="text/css" href="./style/dsk.css"/>
-  <!--script src="./lib/raphael/raphael.js"></script>
   <script src="../../../../GitHub/HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script>
-  <script src="./client/deps.js"></script-->
-  <script src="./lib/DigitaleSchriftkunde.js"></script>
+  <script src="./client/deps.js"></script>
+  <!--script src="./lib/DigitaleSchriftkunde.js"></script-->
   <script type="text/javascript">
     goog.require('dsk');
   </script>

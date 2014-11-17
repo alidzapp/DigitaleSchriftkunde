@@ -151,6 +151,16 @@ let $pages-div :=
 
 return
 
+let $resizable := (
+<div class="resize-n" xmlns="http://www.w3.org/1999/xhtml"></div>,
+<div class="resize-e" xmlns="http://www.w3.org/1999/xhtml"></div>,
+<div class="resize-s" xmlns="http://www.w3.org/1999/xhtml"></div>,
+<div class="resize-w" xmlns="http://www.w3.org/1999/xhtml"></div>,
+<div class="resizable" xmlns="http://www.w3.org/1999/xhtml"></div>
+)
+
+return
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 { conf:html-head() }
 <body>
@@ -194,7 +204,7 @@ return
           <img id="img" src="./img/{ dsk-textgrid:image-name($tei) }"/>
         </div>
       </div>
-      <div class="resizable"></div>
+      { $resizable }
     </div>
     <div id="view-text">
       <div id="view-text-inner">
@@ -206,7 +216,7 @@ return
           <div class="content">
             <div class="p">{ dsk-t:metadata($tei) }</div>
           </div>
-          <div class="resizable"></div>
+          { $resizable }
         </div>
         <div id="window-transcription1">
           <div class="h1">
@@ -216,7 +226,7 @@ return
           <div class="content">
             <div class="p">{ dsk-t:transcription($tei, 'orig') }</div>
           </div>
-          <div class="resizable"></div>
+          { $resizable }
         </div>
         <div id="window-transcription2">
           <div class="h1">
@@ -226,7 +236,7 @@ return
           <div class="content">
             <div class="p">{ dsk-t:transcription($tei, 'reg') }</div>
           </div>
-          <div class="resizable"></div>
+          { $resizable }
         </div>
       </div>
     </div>

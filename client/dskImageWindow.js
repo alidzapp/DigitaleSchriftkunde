@@ -12,6 +12,7 @@ goog.require('goog.dom.DomHelper');
 goog.require('goog.events');
 goog.require('goog.events.EventType');
 goog.require('goog.net.XhrIo');
+goog.require('goog.style');
 goog.require('goog.userAgent');
 goog.require('dsk.Window');
 goog.require('xrx.drawing.Drawing');
@@ -181,7 +182,7 @@ dsk.ImageWindow.prototype.handleHover_ = function(e) {
     self.showAnnotation(shape);
     self.highlighted_ = shape;
     self.view_.getWindowTranscription1().unhighlight();
-    self.view_.getWindowTranscription1().highlight(span);
+    self.view_.getWindowTranscription1().highlight(span, true);
   } else {
     self.hideAnnotation(self.highlighted_);
     self.highlighted_ = null;

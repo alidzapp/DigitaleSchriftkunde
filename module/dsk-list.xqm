@@ -28,9 +28,9 @@ declare variable $dsk-list:html-names := ('liste.html', 'liste-nach-datum-aufste
 
 
 
-declare function dsk-list:filter-option($filter as element(filter), $category as xs:string) {
+declare function dsk-list:filter-option($filter as element(filter), $category as xs:string, $filter-class as xs:string) {
   <span class="h2">
-    <input type="checkbox" checked="checked" name="{ $category }___{ $filter/key/text() }"/>
+    <input class="{ $filter-class }" type="checkbox" checked="checked" name="{ $category }___{ $filter/key/text() }"/>
     <span>{ $filter/word/text() }&#160;</span>
     <span class="light-grey noscript">({ $filter/count/text() })&#160;</span>
     <span>({ $filter/count/text() })</span>
@@ -40,11 +40,11 @@ declare function dsk-list:filter-option($filter as element(filter), $category as
 
 
 
-declare function dsk-list:filter-options($filter-object as element(object)) {
+declare function dsk-list:filter-options($filter-object as element(object), $filter-class as xs:string) {
   let $category := $filter-object/@category/string()
   for $filter in $filter-object/filter
   return
-  dsk-list:filter-option($filter, $category)
+  dsk-list:filter-option($filter, $category, $filter-class)
 };
 
 
@@ -137,15 +137,40 @@ declare function dsk-list:render($sort as xs:string) {
               <span class="h2"><a href="./liste-nach-archivaliengattung.html">Archivaliengattung</a></span><br/>
             </span>
             <span class="h1">Schwierigkeitsgrad</span><br/>
-            { dsk-list:filter-options($dsk-filter:difficulty-object) }
+            { dsk-list:filter-options($dsk-filter:difficulty-object, 'filter_difficulty') }
+            <span class="select-all">
+              <input class="select-all" type="checkbox" checked="checked" name="filter_difficulty"/>
+              <span class="noscript-invisible">alles an/abwählen</span>
+              <br/>
+            </span>
             <span class="h1">Sprache</span><br/>
-            { dsk-list:filter-options($dsk-filter:language-object) }
+            { dsk-list:filter-options($dsk-filter:language-object, 'filter_language') }
+            <span class="select-all">
+              <input class="select-all" type="checkbox" checked="checked" name="filter_language"/>
+              <span class="noscript-invisible">alles an/abwählen</span>
+              <br/>
+            </span>
             <span class="h1">Archivaliengattung</span><br/>
-            { dsk-list:filter-options($dsk-filter:category-object) }
+            { dsk-list:filter-options($dsk-filter:category-object, 'filter_category') }
+            <span class="select-all">
+              <input class="select-all" type="checkbox" checked="checked" name="filter_category"/>
+              <span class="noscript-invisible">alles an/abwählen</span>
+              <br/>
+            </span>
             <span class="h1">Jahrhundert</span><br/>
-            { dsk-list:filter-options($dsk-filter:century-object) }
+            { dsk-list:filter-options($dsk-filter:century-object, 'filter_century') }
+            <span class="select-all">
+              <input class="select-all" type="checkbox" checked="checked" name="filter_century"/>
+              <span class="noscript-invisible">alles an/abwählen</span>
+              <br/>
+            </span>
             <span class="h1">Archiv</span><br/>
-            { dsk-list:filter-options($dsk-filter:archive-object) }
+            { dsk-list:filter-options($dsk-filter:archive-object, 'filter_archive') }
+            <span class="select-all">
+              <input class="select-all" type="checkbox" checked="checked" name="filter_archive"/>
+              <span class="noscript-invisible">alles an/abwählen</span>
+              <br/>
+            </span>
           </div>
           <div id="list">
             <div>{ dsk-list:list-items($sort) }</div>
