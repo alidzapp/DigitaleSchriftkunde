@@ -10,7 +10,6 @@ goog.require('goog.dom.DomHelper');
 goog.require('dsk.Index');
 goog.require('dsk.List');
 goog.require('dsk.View');
-goog.require('xrx');
 
 
 

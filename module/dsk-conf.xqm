@@ -37,11 +37,12 @@ declare function conf:html-head() {
   <![endif]-->
   <link rel="stylesheet" type="text/css" href="./style/bayhsta.css"/>
   <link rel="stylesheet" type="text/css" href="./style/dsk.css"/>
-  <script src="../../../../GitHub/HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script>
-  <script src="./client/deps.js"></script>
-  <!--script src="./lib/DigitaleSchriftkunde.js"></script-->
+  <!--script src="../../../../GitHub/HKIKoeln/SemToNotes/client/lib/closure-library/closure/goog/base.js"></script>
+  <script src="./client/deps.js"></script-->
+  <script src="./lib/DigitaleSchriftkunde.js"></script>
   <script type="text/javascript">
     goog.require('dsk');
+    goog.require('xrx');
   </script>
 </head>
 

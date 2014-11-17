@@ -251,9 +251,8 @@ dsk.Filter.prototype.isCategoryChecked = function(name) {
 dsk.Filter.prototype.handleSelectAll = function(input) {
   var self = this;
   var categories =
-      goog.dom.getElementsByTagNameAndClass('input', input.getAttribute('name'));
-  console.log(categories);
-  goog.object.forEach(categories, function(e, i, a) {
+      goog.dom.getElementsByTagNameAndClass('input', input.name);
+  goog.array.forEach(categories, function(e, i, a) {
     if (!e.checked === input.checked) {
       e.checked = input.checked;
       self.handleSelected(e);

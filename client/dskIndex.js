@@ -12,6 +12,7 @@ goog.require('goog.events.EventType');
 goog.require('goog.fx.dom.FadeOutAndHide');
 goog.require('goog.fx.dom.FadeInAndShow');
 goog.require('goog.style');
+goog.require('xrx.mvc.Components');
 
 
 
