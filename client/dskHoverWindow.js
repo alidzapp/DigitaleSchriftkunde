@@ -7,6 +7,8 @@ goog.provide('dsk.HoverWindow');
 
 
 goog.require('goog.array');
+goog.require('goog.dom.classes');
+goog.require('goog.dom.dataset');
 goog.require('goog.dom.DomHelper');
 goog.require('goog.dom.NodeIterator');
 goog.require('goog.events');
@@ -43,7 +45,25 @@ dsk.HoverWindow.prototype.isHighlightingSituation = function(element) {
 
 
 
+dsk.HoverWindow.prototype.getHandnoteColor_ = function(span) {
+  var e;
+  var spanHandshift;
+  var scribeId;
+  for (var i = 0, len = this.nodes_.length; i < len; i++) {
+    e = this.nodes_[i];
+    if (e.tagName && e.tagName.toLowerCase() === 'span' && goog.dom.classes.has(e, 'tei_handShift')) {
+      spanHandshift = e;
+    };
+    if (e === span) break;
+  };
+  spanHandshift ? scribeId = goog.dom.dataset.get(spanHandshift, 'scribe') : scribeId = undefined;
+  return this.view_.getColorByScribeId(scribeId) || '#FF9900';
+};
+
+
+
 dsk.HoverWindow.prototype.highlight = function(span, active) {
+  var color = !this.view_.isHandnotes() ? '#FF9900' : this.getHandnoteColor_(span);
   var self = this;
   var i = 0;
   var e;
@@ -53,7 +73,7 @@ dsk.HoverWindow.prototype.highlight = function(span, active) {
   var endId;
   for (var i = 0, len = this.nodes_.length; i < len; i++) {
     e = this.nodes_[i];
-    if (e.tagName && e.tagName.toLowerCase() === 'span' && e.id && goog.string.endsWith(e.id, '_start') &&
+    if (e.id && goog.string.endsWith(e.id, '_start') &&
         !found) {
       this.highlight_ = null;
       this.highlight_ = [];
@@ -72,10 +92,10 @@ dsk.HoverWindow.prototype.highlight = function(span, active) {
   if (!end) {
     self.highlight_ = [];
   } else {
-    this.view_.getWindowImage().showAnnotationById(endId.substr(0, endId.indexOf('_')));
+    this.view_.getWindowImage().showAnnotationById(endId.substr(0, endId.indexOf('_')), color);
   }
   goog.array.forEach(self.highlight_, function(e, i, a) {
-    goog.style.setStyle(e, 'border-bottom', 'solid #FF9900 3px');
+     goog.style.setStyle(e, 'border-bottom', 'solid ' + color + ' 3px');
   });
   if (active) goog.style.scrollIntoContainerView(span, this.content_, true);
 };
@@ -133,11 +153,12 @@ dsk.HoverWindow.prototype.initTeiLeftAdditions_ = function() {
     goog.style.setStyle(e, 'display', 'inline-block');
     goog.style.setStyle(e, 'width', longestWidth + 'px');
   });
+  return longestWidth;
 };
 
 
 
-dsk.HoverWindow.prototype.initTeiRightAdditions_ = function() {
+dsk.HoverWindow.prototype.initTeiRightAdditions_ = function(add) {
   var rightAdditions = goog.dom.getElementsByTagNameAndClass('span', 'tei_add_right', self.element_);
   var hasAdditions = false;
   rightAdditions.length > 0 ? hasAdditions = true : hasAdditions = false;
@@ -150,15 +171,15 @@ dsk.HoverWindow.prototype.initTeiRightAdditions_ = function() {
   goog.array.forEach(rightAdditions, function(e, i, a) {
     position = goog.style.getClientPosition(e);
     goog.style.setStyle(e, 'position', 'absolute');
-    goog.style.setPageOffset(e, mostRight, position.y);
+    goog.style.setPageOffset(e, mostRight + add, position.y);
   });
 };
 
 
 
 dsk.HoverWindow.prototype.initTei_ = function() {
-  this.initTeiLeftAdditions_();
-  this.initTeiRightAdditions_();
+  var add = this.initTeiLeftAdditions_();
+  this.initTeiRightAdditions_(add);
 };
 
 
@@ -174,4 +195,7 @@ dsk.HoverWindow.prototype.register_ = function() {
   }, false, self);
   this.nodes_ = new goog.dom.NodeIterator(self.p_, false, false);
   this.nodes_ = goog.iter.toArray(self.nodes_);
+  goog.array.filter(this.nodes_, function(e) {
+    return e.tagName && e.tagName.toLowerCase() === 'span';
+  });
 };

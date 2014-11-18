@@ -93,16 +93,17 @@ dsk.ImageWindow.prototype.getDrawing = function() {
 
 
 
-dsk.ImageWindow.prototype.showAnnotation = function(shape) {
+dsk.ImageWindow.prototype.showAnnotation = function(shape, color) {
+  var c = color || '#FF9900';
   if (shape) shape.setStrokeWidth(5);
-  if (shape) shape.setStrokeColor('#FF9900');
+  if (shape) shape.setStrokeColor(c);
   this.drawing_.draw();
 };
 
 
 
-dsk.ImageWindow.prototype.showAnnotationById = function(id) {
-  this.showAnnotation(this.shapes_[id]);
+dsk.ImageWindow.prototype.showAnnotationById = function(id, color) {
+  this.showAnnotation(this.shapes_[id], color);
   this.drawing_.draw();
 };
 
@@ -166,6 +167,15 @@ dsk.ImageWindow.prototype.initShapes_ = function() {
 
 
 
+dsk.ImageWindow.prototype.nextHoverText = function(span) {
+  do {
+    span = goog.dom.getNextNode(span);
+  } while (!goog.dom.classes.has(span, 'hover-text'));
+  return span;
+};
+
+
+
 dsk.ImageWindow.prototype.handleHover_ = function(e) {
   if (!this.view_.isTilinking()) return;
   if (this.drawing_.getViewbox().state_ === xrx.drawing.State.DRAG) return;
@@ -178,6 +188,7 @@ dsk.ImageWindow.prototype.handleHover_ = function(e) {
   shape = self.drawing_.getShapeSelected(self.mousePoint_);
   if (shape) {
     var span = goog.dom.getElement(shape.id + '_start');
+    span = this.nextHoverText(span);
     self.hideAnnotation(self.highlighted_);
     self.showAnnotation(shape);
     self.highlighted_ = shape;

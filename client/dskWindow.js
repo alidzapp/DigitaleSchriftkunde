@@ -123,8 +123,8 @@ dsk.Window.prototype.registerResizable = function() {
   goog.events.listen(d, goog.events.EventType.DRAG, function(e) {
     e.preventDefault();
     e.stopPropagation();
-    size.width = d.deltaX + 20;
-    size.height = d.deltaY + 20;
+    size.width = d.deltaX + 5;
+    size.height = d.deltaY + 5;
     goog.style.setContentBoxSize(self.element_, size);
     if (self.drawing_) self.drawing_.handleResize();
   });
@@ -141,8 +141,8 @@ dsk.Window.prototype.registerResizable = function() {
     e.preventDefault();
     e.stopPropagation();
     left = goog.style.getPageOffsetLeft(self.element_);
-    goog.style.setPageOffset(self.element_, left, dN.clientY - 20);
-    size.height = height - dN.deltaY - 20;
+    goog.style.setPageOffset(self.element_, left, dN.clientY - 5);
+    size.height = height - dN.deltaY - 5;
     goog.style.setContentBoxSize(self.element_, size);
     if (self.drawing_) self.drawing_.handleResize();
   });
@@ -158,7 +158,7 @@ dsk.Window.prototype.registerResizable = function() {
   goog.events.listen(dE, goog.events.EventType.DRAG, function(e) {
     e.preventDefault();
     e.stopPropagation();
-    size.width = dE.deltaX + 20;
+    size.width = dE.deltaX + 5;
     goog.style.setContentBoxSize(self.element_, size);
     if (self.drawing_) self.drawing_.handleResize();
   });
@@ -174,7 +174,7 @@ dsk.Window.prototype.registerResizable = function() {
   goog.events.listen(dS, goog.events.EventType.DRAG, function(e) {
     e.preventDefault();
     e.stopPropagation();
-    size.height = dS.deltaY + 20;
+    size.height = dS.deltaY + 5;
     goog.style.setContentBoxSize(self.element_, size);
     if (self.drawing_) self.drawing_.handleResize();
   });
@@ -191,7 +191,7 @@ dsk.Window.prototype.registerResizable = function() {
     e.preventDefault();
     e.stopPropagation();
     top = goog.style.getPageOffsetTop(self.element_);
-    goog.style.setPageOffset(self.element_, dW.clientX - 20, top);
+    goog.style.setPageOffset(self.element_, dW.clientX - 5, top);
     size.width = width - dW.deltaX;
     goog.style.setContentBoxSize(self.element_, size);
     if (self.drawing_) self.drawing_.handleResize();

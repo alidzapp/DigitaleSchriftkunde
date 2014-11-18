@@ -120,7 +120,11 @@ let $xslt :=
       <span class="label">Schreiberhände: </span><br/>
       <ul>
         <xsl:for-each select="./tei:handNote">
-          <li>
+          <li class="handNote" xmlns="http://www.w3.org/1999/xhtml">
+            <xsl:attribute name="id">
+              <xsl:text>scribe_</xsl:text>
+              <xsl:value-of select="./@n"/>
+            </xsl:attribute>
             <xsl:value-of select="."/>
             <xsl:text> (</xsl:text>
             <xsl:value-of select="./@n"/>
@@ -376,10 +380,13 @@ let $xslt :=
     <xsl:param name="scribe" select="./@new"/>
     <xsl:if test="(./preceding::tei:lb[@type!='empty'])[last()]/@type = '{ $type }'">
       <span class="tei_handShift" xmlns="http://www.w3.org/1999/xhtml">
+        <xsl:attribute name="data-scribe">
+          <xsl:text>scribe_</xsl:text>
+          <xsl:value-of select="$scribe"/>
+        </xsl:attribute>
         <xsl:text>(</xsl:text>
         <xsl:value-of select="//tei:handNote[@n=$scribe]/tei:p/text()"/>
         <xsl:text>:) </xsl:text>
-        <xsl:text> </xsl:text>
       </span>
     </xsl:if>
   </xsl:template>

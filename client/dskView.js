@@ -12,6 +12,8 @@ goog.require('dsk.Window');
 goog.require('goog.array');
 goog.require('goog.events');
 goog.require('goog.events.EventType');
+goog.require('goog.dom.classes');
+goog.require('goog.dom.dataset');
 goog.require('goog.dom.DomHelper');
 goog.require('goog.object');
 goog.require('goog.style');
@@ -32,13 +34,51 @@ dsk.View = function(element) {
 
   this.tilinking_ = true;
 
+  this.handnotes_ = false;
+
+  this.handnoteColors_ = [
+      'black',
+      '#CC33FF',
+      '#009933',
+      '#0033CC',
+      '#FF6600',
+      '#00CC99',
+      '#CC0000'
+  ];
+
+  this.scribes_ = {};
+
+  this.divHandnotes_;
+
+  this.nodesScribeT1_;
+
+  this.nodesScribeT2_;
+
   this.create_();
 };
 
 
 
 dsk.View.prototype.isTilinking = function() {
-  return this.tilinking_
+  return this.tilinking_;
+};
+
+
+
+dsk.View.prototype.isHandnotes = function() {
+  return this.handnotes_;
+};
+
+
+
+dsk.View.prototype.getColorByScribeId = function(id) {
+  return this.scribes_[id];
+};
+
+
+
+dsk.View.prototype.getWindowComment = function() {
+  return this.window_[dsk.Window.COMMENT];
 };
 
 
@@ -55,18 +95,28 @@ dsk.View.prototype.getWindowTranscription1 = function() {
 
 
 
+dsk.View.prototype.getWindowTranscription2 = function() {
+  return this.window_[dsk.Window.T2];
+};
+
+
+
 dsk.View.prototype.initView_ = function() {
   var image = goog.dom.getElement(dsk.Window.IMAGE);
   var comment = goog.dom.getElement(dsk.Window.COMMENT);
   var t1 = goog.dom.getElement(dsk.Window.T1);
   var t2 = goog.dom.getElement(dsk.Window.T2);
   var height = goog.style.getSize(comment).height;
+
+  // initialize the windows 
   this.window_[dsk.Window.IMAGE] = new dsk.ImageWindow(image, 0, this);
   this.window_[dsk.Window.COMMENT] = new dsk.Window(comment, 0);
   //this.window_[dsk.Window.COMMENT].setOptimalHeight();
   this.window_[dsk.Window.T1] = new dsk.HoverWindow(t1, 1, this, height);
   this.window_[dsk.Window.T2] = new dsk.Window(t2, 2, height);
   this.window_[dsk.Window.T2].hide();
+
+  // IE7/8 bug-fix: initialize focusable windows
   var viewMain = goog.dom.getElement('view-main');
   var viewText = goog.dom.getElement('view-text');
   var viewTextInner = goog.dom.getElement('view-text-inner');
@@ -264,11 +314,92 @@ dsk.View.prototype.registerTilinking_ = function() {
   var self = this;
   var options = goog.dom.getElement('options');
   var checkboxes = goog.dom.getElementsByTagNameAndClass('input', undefined, options);
-  var checkbox = checkboxes[checkboxes.length - 1];
-
+  var checkbox = checkboxes[checkboxes.length - 2];
   goog.events.listen(checkbox, goog.events.EventType.CLICK, function(e) {
     checkbox.checked ? self.tilinking_ = true : self.tilinking_ = false;
-  })
+  });
+};
+
+
+
+dsk.View.prototype.initHandnotes_ = function() {
+  var self = this;
+
+  // initialize the scribes
+  var handnoteList;
+  this.divHandnotes_ = goog.dom.getElementsByTagNameAndClass('div', 'handNotes',
+      this.getWindowComment().getElement())[0];
+  handnoteList = goog.dom.getElementsByTagNameAndClass('li', 'handNote',
+      this.divHandnotes_);
+  goog.array.forEach(handnoteList, function(e, i) {
+    goog.style.setStyle(e, 'color', self.handnoteColors_[i]);
+    self.scribes_[e.id] = self.handnoteColors_[i];
+  });
+
+  // node-sets to be visualized when hand-note option is active
+  var p1 = goog.dom.getElementsByTagNameAndClass('div', 'p',
+      this.getWindowTranscription1().getElement())[0];
+  this.nodesScribeT1_ = new goog.dom.NodeIterator(p1, false, false);
+  this.nodesScribeT1_ = goog.iter.toArray(this.nodesScribeT1_);
+  this.nodesScribeT1_ = goog.array.filter(this.nodesScribeT1_, function(e) {
+    return e.tagName && e.tagName.toLowerCase() === 'span';
+  });
+  var p2 = goog.dom.getElementsByTagNameAndClass('div', 'p',
+      this.getWindowTranscription2().getElement())[0];
+  this.nodesScribeT2_ = new goog.dom.NodeIterator(p2, false, false);
+  this.nodesScribeT2_ = goog.iter.toArray(this.nodesScribeT2_);
+  this.nodesScribeT2_ = goog.array.filter(this.nodesScribeT2_, function(e) {
+    return e.tagName && e.tagName.toLowerCase() === 'span';
+  });
+
+  // initialize the hand-note option
+  this.handleHandnotes_();
+};
+
+
+
+dsk.View.prototype.visualizeScribe_ = function(nodeset) {
+  var color;
+  var e;
+  var spanHandshift;
+  var scribeId;
+  for (var i = 0, len = nodeset.length; i < len; i++) {
+    e = nodeset[i];
+    if (goog.dom.classes.has(e, 'tei_handShift')) {
+      spanHandshift = e;
+    };
+    if (goog.dom.classes.has(e, 'hover-text')) {
+      spanHandshift ? scribeId = goog.dom.dataset.get(spanHandshift, 'scribe') : scribeId = undefined;
+      !this.isHandnotes() ? color = 'black' : color = this.getColorByScribeId(scribeId);
+      goog.style.setStyle(e, 'color', color);
+    };
+  };
+};
+
+
+
+dsk.View.prototype.handleHandnotes_ = function() {
+  if (goog.object.getCount(this.scribes_) === 0) return;
+  if (this.handnotes_) {
+    goog.style.setStyle(this.divHandnotes_, 'display', 'block');
+  } else {
+    goog.style.setStyle(this.divHandnotes_, 'display', 'none');
+  };
+  this.visualizeScribe_(this.nodesScribeT1_);
+  this.visualizeScribe_(this.nodesScribeT2_);
+};
+
+
+
+dsk.View.prototype.registerHandnotes_ = function() {
+  var self = this;
+  var options = goog.dom.getElement('options');
+  var checkboxes = goog.dom.getElementsByTagNameAndClass('input', undefined, options);
+  var checkbox = checkboxes[checkboxes.length - 1];
+  goog.events.listen(checkbox, goog.events.EventType.CLICK, function(e) {
+    checkbox.checked ? self.handnotes_ = true : self.handnotes_ = false;
+    self.handleHandnotes_();
+  });
 };
 
 
@@ -290,5 +421,7 @@ dsk.View.prototype.create_ = function() {
   this.registerShow_();
   this.registerFocus_();
   this.registerTilinking_();
+  this.initHandnotes_();
+  this.registerHandnotes_();
   this.initNoscript_();
 };

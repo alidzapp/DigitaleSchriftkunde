@@ -42,7 +42,6 @@ declare function conf:html-head() {
   <script src="./lib/DigitaleSchriftkunde.js"></script>
   <script type="text/javascript">
     goog.require('dsk');
-    goog.require('xrx');
   </script>
 </head>
 

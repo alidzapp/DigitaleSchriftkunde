@@ -182,6 +182,9 @@ return
         <span> | </span>
         <span>Text-Bild-Verknüpfung </span>
         <input type="checkbox" name="text-image-linking" checked="checked"/>
+        <span> | </span>
+        <span>Schreiberhände</span>
+        <input type="checkbox" name="hand-notes"/>
       </div>
     </div>
   </div>
