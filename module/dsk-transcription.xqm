@@ -74,10 +74,13 @@ let $xslt :=
   <xsl:template name="abstract">
     <b xmlns="http://www.w3.org/1999/xhtml">
       <xsl:apply-templates select="$tei//tei:abstract/tei:p"/>
+      <xsl:text>,&#160;</xsl:text>
       <xsl:value-of select="$tei//tei:date/text()"/>
-      <xsl:text>&#160;(</xsl:text>
-      <xsl:value-of select="$tei//tei:placeName/text()"/>
-      <xsl:text>)</xsl:text>
+      <xsl:if test="$tei//tei:placeName/text()">
+        <xsl:text>&#160;(</xsl:text>
+        <xsl:value-of select="$tei//tei:placeName/text()"/>
+        <xsl:text>)</xsl:text>
+      </xsl:if>
     </b>
     <br/>
     <br/>
@@ -400,7 +403,7 @@ let $xslt :=
   </xsl:template>
   
   <xsl:template match="tei:table">
-    <xsl:if test="(./preceding::tei:lb[@type!='empty'])[last()]/@type = '{ $type }'">
+    <xsl:if test="count(.//tei:lb[@type='{ $type }']) > 0">
       <table xmlns="http://www.w3.org/1999/xhtml">
         <xsl:apply-templates/>
       </table>

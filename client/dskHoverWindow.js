@@ -195,7 +195,8 @@ dsk.HoverWindow.prototype.register_ = function() {
   }, false, self);
   this.nodes_ = new goog.dom.NodeIterator(self.p_, false, false);
   this.nodes_ = goog.iter.toArray(self.nodes_);
-  goog.array.filter(this.nodes_, function(e) {
-    return e.tagName && e.tagName.toLowerCase() === 'span';
+  this.nodes_ = goog.array.filter(this.nodes_, function(e) {
+    return e.tagName && (goog.dom.classes.has(e, 'tei_handShift') || e.id ||
+        goog.dom.classes.has(e, 'hover-text'));
   });
 };
