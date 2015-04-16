@@ -102,7 +102,7 @@ declare function dsk:render() {
         <div id="index-wordcloud">{ dsk:word-cloud() }</div>
         <div id="index-image">
           <div id="index-slider">
-            <a href="./1496_BayHStA_KU_Frauenchiemsee_88_03.html.html#_a__b__c__d__e_">
+            <a href="./1496_BayHStA_KU_Frauenchiemsee_88_03.html#_a__b__c__d__e_">
               <img src="./slider/1496_BayHStA_KU_Frauenchiemsee_88.jpg"/>
             </a>
             <a href="./18_Jh_BayHStA_KurbayernAeA_2160_Attenkofer_II.html#_a__b__c__d__e_" style="display:none">
