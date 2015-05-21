@@ -29,7 +29,7 @@ declare option exist:serialize "method=xml media-type=application/xml indent=yes
 
 
 
-declare variable $base := 'C:\wamp\www\GitHub\eXist\webapp\DigitaleSchriftkunde\';
+declare variable $base := concat($conf:exist-home, 'webapp\DigitaleSchriftkunde\');
 
 
 
@@ -68,4 +68,4 @@ let $compile :=
   local:compile-json(dsk-view:annotations($tei), './json/' || dsk-textgrid:json-name($tei))
 )
 return
-$teis
+<div>Ready</div>
