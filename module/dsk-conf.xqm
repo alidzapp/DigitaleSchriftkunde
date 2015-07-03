@@ -7,8 +7,9 @@ module namespace conf="http://semtonotes.github.io/SemToNotes/conf";
 
 
 (: db :)
-declare variable $conf:pswd := 'd5xp3ST4c';
+declare variable $conf:pswd := 'admin';
 declare variable $conf:db := collection('xmldb:exist://db/TextGridExport');
+declare variable $conf:exist-home := 'C:\Users\Archivar\Desktop\eXist\';
 
 
 
@@ -20,10 +21,10 @@ declare variable $conf:noscript := request:get-parameter('noscript', 'false');
 
 (: data :)
 declare variable $conf:data := system:as-user('admin', $conf:pswd,
-    file:directory-list('C:\wamp\www\GitHub\eXist\webapp\DigitaleSchriftkunde\img\', '*.*')
+    file:directory-list(concat($conf:exist-home, 'webapp\DigitaleSchriftkunde\img\'), '*.*')
 );
 declare variable $conf:textgrid-tgl-file-names := system:as-user('admin', $conf:pswd,
-    file:directory-list('C:\wamp\www\GitHub\eXist\webapp\TextGridExport\', '*.*')
+    file:directory-list(concat($conf:exist-home, 'webapp\TextGridExport\'), '*.*')
 );
 
 
