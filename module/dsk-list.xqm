@@ -31,7 +31,7 @@ declare variable $dsk-list:html-names := ('liste.html', 'liste-nach-datum-aufste
 declare function dsk-list:filter-option($filter as element(filter), $category as xs:string, $filter-class as xs:string) {
   <span class="h2">
     <input class="{ $filter-class }" type="checkbox" checked="checked" name="{ $category }___{ $filter/key/text() }"/>
-    <span>{ $filter/word/text() }&#160;</span>
+    <span>{ conf:word($filter/word/text()) }&#160;</span>
     <span class="light-grey noscript">({ $filter/count/text() })&#160;</span>
     <span>({ $filter/count/text() })</span>
     <br/>

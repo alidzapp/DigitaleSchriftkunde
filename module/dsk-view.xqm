@@ -186,6 +186,11 @@ return
         <span>Schreiberhände</span>
         <input type="checkbox" name="hand-notes"/>
       </div>
+      <div id="impressum">
+        <span><a href="http://www.gda.bayern.de/impressum/">Impressum</a></span>
+        <span>&#160;|&#160;</span>
+        <span><a href="./about.html">Über dieses Angebot</a></span>
+      </div>
     </div>
   </div>
   <div id="view-main">

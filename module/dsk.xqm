@@ -40,7 +40,7 @@ declare function dsk:size($count) {
 
 
 declare function dsk:word-link($words as xs:string*, $category as xs:string) {
-  let $word := $words[1]
+  let $word := conf:word($words[1])
   let $key := dsk-filter:get-key-by-word($dsk-filter:objects($category), $word)
   let $link := concat($dsk:link-to-list, '#', dsk-filter:url-fragment-complete($category, $key)) 
   return
@@ -121,19 +121,16 @@ declare function dsk:render() {
           <img id="index-arrowLeft" src="./res/arrowLeft.png" class="noscript"/>
           <img id="index-arrowRight" src="./res/arrowRight.png" class="noscript"/>
         </div>
-        <div id="index-link">
-          <a class="large" href="{ $dsk:link-to-list }#{ dsk-filter:url-fragment-complete((), ()) }">Zu den Archivalien</a>
-        </div>
         <div id="index-content">
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
-
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-          </p>
-          <div id="about-link">
-            <a class="large" href="./about.html">Über das Projekt</a>
-          </div>
+          <p>Herzlich willkommen in der Digitalen Schriftkunde,  der Lese- und Übungsumgebung der Staatlichen Archive Bayerns!  Wir präsentieren hier ausgewählte Quellenbeispiele aus unseren Beständen, die wir mit Entzifferungshilfen und Transkriptionen aufbereitet haben. Wir wünschen Ihnen lehrreiche Lektüre und gewinnbringende Übungsstunden.</p>
+          <p>&#160;</p>
+          <p>Dieses Angebot wurde durch Mittel des Staatsministeriums für Bildung und Kultus, Wissenschaft und Kunst ermöglicht.</p>
+        </div>
+        <div id="index-link">
+          <a class="large" href="{ $dsk:link-to-list }#{ dsk-filter:url-fragment-complete((), ()) }">Zu den Schriftbeispielen</a>
+        </div>
+        <div id="about-link">
+          <a class="large" href="./about.html">Über dieses Angebot</a>
         </div>
         <div id="index-logo">
           <img src="./icon/bayhsta.gif"/>

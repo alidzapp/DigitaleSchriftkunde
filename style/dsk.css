@@ -4,7 +4,7 @@
  */
 
 a.large {
-font-size: 2em;
+font-size: 1.5em;
 margin: 10px;
 }
 
@@ -99,6 +99,12 @@ left: 0px;
 position: absolute;
 top: 20px;
 right: 0px;
+}
+
+#impressum {
+position: absolute;
+right: .2em;
+top: -1.2em;
 }
 
 /*

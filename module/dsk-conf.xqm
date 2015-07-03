@@ -27,6 +27,27 @@ declare variable $conf:textgrid-tgl-file-names := system:as-user('admin', $conf:
 );
 
 
+
+(: mappings :)
+declare function conf:word($word as xs:string) {
+  let $m := map {
+      'BayHStA' := 'Bayerisches Hauptstaatsarchiv',
+      'StA Amberg' := 'Staatsarchiv Amberg',
+      'StA Augsburg' := 'Staatsarchiv Augsburg',
+      'StA Bamberg' := 'Staatsarchiv Bamberg',
+      'StA Coburg' := 'Staatsarchiv Coburg',
+      'StA Landshut' := 'Staatsarchiv Landshut',
+      'StA München' := 'Staatsarchiv München',
+      'StA Nürnberg' := 'Staatsarchiv Nürnberg',
+      'StA Würzburg' := 'Staatsarchiv Würzburg'
+    }
+  return
+    if (map:contains($m, $word)) then $m($word)
+    else $word
+};
+
+
+
 declare function conf:html-head() {
 
 <head xmlns="http://www.w3.org/1999/xhtml">
@@ -51,7 +72,15 @@ declare function conf:html-head() {
 declare function conf:footer() {
 
 <footer xmlns="http://www.w3.org/1999/xhtml">
-  <div class="footer-wrapper" id="copyright"><p>Copyright &#169; 1999 - 2014 Generaldirektion der Staatlichen Archive Bayerns</p></div>
+  <div class="footer-wrapper" id="copyright">
+    <p>
+      <span>Copyright &#169; 1999 - 2015 Generaldirektion der Staatlichen Archive Bayerns</span>
+      <span>&#160;|&#160;</span>
+      <span><a href="http://www.gda.bayern.de/impressum/">Impressum</a></span>
+      <span>&#160;|&#160;</span>
+      <span><a href="./about.html">Über dieses Angebot</a></span>
+    </p>
+  </div>
 </footer>
 
 };
