@@ -168,9 +168,9 @@ return
     <div id="title">
       <h1><a href="./liste.html">&lt;</a> Digitale Schriftkunde</h1>
       <div id="options" class="noscript-invisible">
-        <span>Bild </span>
-        <input type="checkbox" class="window-image" name="iwindow-image" checked="checked"/>
-        <span> | </span>
+        <span style="display:none">Bild </span>
+        <input style="display:none" type="checkbox" class="window-image" name="iwindow-image" checked="checked"/>
+        <span style="display:none"> | </span>
         <span>Kommentar </span>
         <input type="checkbox" class="window-comment" name="iwindow-comment" checked="checked"/>
         <span> | </span>

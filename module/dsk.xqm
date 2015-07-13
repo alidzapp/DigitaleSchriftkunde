@@ -40,11 +40,11 @@ declare function dsk:size($count) {
 
 
 declare function dsk:word-link($words as xs:string*, $category as xs:string) {
-  let $word := conf:word($words[1])
+  let $word := $words[1]
   let $key := dsk-filter:get-key-by-word($dsk-filter:objects($category), $word)
   let $link := concat($dsk:link-to-list, '#', dsk-filter:url-fragment-complete($category, $key)) 
   return
-  <span xmlns="http://www.w3.org/1999/xhtml"><a href="{ $link }">{ $word }</a><br/></span>
+  <span xmlns="http://www.w3.org/1999/xhtml"><a href="{ $link }">{ conf:word($word) }</a><br/></span>
 };
 
 
@@ -122,7 +122,7 @@ declare function dsk:render() {
           <img id="index-arrowRight" src="./res/arrowRight.png" class="noscript"/>
         </div>
         <div id="index-content">
-          <p>Herzlich willkommen in der Digitalen Schriftkunde,  der Lese- und Übungsumgebung der Staatlichen Archive Bayerns!  Wir präsentieren hier ausgewählte Quellenbeispiele aus unseren Beständen, die wir mit Entzifferungshilfen und Transkriptionen aufbereitet haben. Wir wünschen Ihnen lehrreiche Lektüre und gewinnbringende Übungsstunden.</p>
+          <p>Herzlich willkommen in der Digitalen Schriftkunde, der Lese- und Übungsumgebung der Staatlichen Archive Bayerns! Wir präsentieren hier ausgewählte Quellenbeispiele aus unseren Beständen, die wir mit Entzifferungshilfen und Transkriptionen aufbereitet haben. Wir wünschen Ihnen lehrreiche Lektüre und gewinnbringende Übungsstunden.</p>
           <p>&#160;</p>
           <p>Dieses Angebot wurde durch Mittel des Staatsministeriums für Bildung und Kultus, Wissenschaft und Kunst ermöglicht.</p>
         </div>
@@ -133,7 +133,7 @@ declare function dsk:render() {
           <a class="large" href="./about.html">Über dieses Angebot</a>
         </div>
         <div id="index-logo">
-          <img src="./icon/bayhsta.gif"/>
+          <a href="http://www.gda.bayern.de/"><img src="./icon/bayhsta.gif"/></a>
         </div>
       </div>
       { conf:footer() }

@@ -76,9 +76,11 @@ declare function conf:footer() {
     <p>
       <span>Copyright &#169; 1999 - 2015 Generaldirektion der Staatlichen Archive Bayerns</span>
       <span>&#160;|&#160;</span>
-      <span><a href="http://www.gda.bayern.de/impressum/">Impressum</a></span>
+      <span><a href="./liste.html">Zu den Schriftbeispielen</a></span>
       <span>&#160;|&#160;</span>
       <span><a href="./about.html">Über dieses Angebot</a></span>
+      <span>&#160;|&#160;</span>
+      <span><a href="http://www.gda.bayern.de/impressum/">Impressum</a></span>
     </p>
   </div>
 </footer>
